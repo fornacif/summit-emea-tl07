@@ -1,4 +1,5 @@
 # TL07 - Boost your AEM Search
+[Chapter 01 - Tooling](#chapter-01---tooling)
 ## Chapter 01 - Tooling
 ## Chapter 02 - Search fundamentals
 ## Chapter 03 - Suggestions
