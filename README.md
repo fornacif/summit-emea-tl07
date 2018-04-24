@@ -11,7 +11,7 @@
 [Chapter 08 - Smart Translation](#chapter-08---smart-translation)  
 [Chapter 09 - Diagnosis](#chapter-09---diagnosis)  
 
-## Chapter 01 - Boostrap
+## Chapter 01 - Bootstrap
 
 ### AEM Start
 Start AEM by executing the following command  
@@ -61,7 +61,7 @@ Perform a fulltext search on the term *mountain* on assets
 * AEM > Assets > File
 * Navigate to Assets root folder: http://localhost:4502/assets.html/content/dam
 * Search the term *mountain*
-[Search asset](images/search-asset.png)
+<img src="images/search-asset.png" width="500" />
 
 
 ## Chapter 03 - Suggestions
