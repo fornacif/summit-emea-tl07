@@ -18,22 +18,22 @@ Using Chrome, log in to AEM Author at http://localhost:4502/
 
 ### Adobe Developer Tools
 #### Index Manager
-Web console that facilitates re-indexing of Oak indices and reviewing high-level Oak index configurations.
+Web console that facilitates ~~re-indexing of Oak indices~~ and reviewing high-level Oak index configurations.
 
 * AEM > Tools > Operations > Diagnosis > Index Manager
-* http://localhost:4502/libs/granite/operations/content/diagnosis/tool.html/granite_oakindexmanager
+* http://localhost:4502/libs/granite/operations/content/diagnosistools/indexManager.html
 
 #### Query Performance
 Web console that lists recent slow and popular queries.
 
 *	AEM > Tools > Operations > Diagnosis > Query Performance
-*	http://localhost:4502/libs/granite/operations/content/diagnosis/tool.html/granite_queryperformance
+*	http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html
 
 #### Explain Query
 Web console that provides detailed execution details for a specific query.
 
 *	AEM > Tools > Operations > Diagnosis > Query Performance > Explain Query tab
-*	http://localhost:4502/libs/granite/operations/content/diagnosis/tool.html/granite_queryperformance
+*	http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html
 
 #### QueryBuilder Debugger
 Executes QueryBuilder-based queries, provides the derived XPath expression and results.
