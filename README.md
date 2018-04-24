@@ -62,6 +62,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 3. Filter by Files only (and not Folders) and type the term *mountain*
 ![](images/search-assets.png)
 4. Find the executed query in the **Popular Queries** tab of [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html) 
+![](images/query-performance.png)
 5. Select the query and perform the explain
 ![](images/explain-query.png)
 
