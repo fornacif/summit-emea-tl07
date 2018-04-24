@@ -27,13 +27,11 @@ Install content package which contains some assets.
 ### Developer Tools
 #### Index Manager
 Web console that facilitates and reviewing high-level Oak index configurations.
-
-AEM > Tools > Operations > Diagnosis > [Index Manager](http://localhost:4502/libs/granite/operations/content/diagnosistools/indexManager.html)
+- AEM > Tools > Operations > Diagnosis > [Index Manager](http://localhost:4502/libs/granite/operations/content/diagnosistools/indexManager.html)
 
 #### Query Performance & Explain Query
 Web console that lists recent slow and popular queries and provides detailed execution details for a specific query.
-
-AEM > Tools > Operations > Diagnosis > [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html)
+- AEM > Tools > Operations > Diagnosis > [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html)
 
 #### :information_source: Re-indexing Oak Indexes via Index Manager
 Throughout this lab, re-indexing of the /oak:index/damAssetLucene will be required to make configuration changes to take effect.  
