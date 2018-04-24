@@ -28,20 +28,18 @@ Install content package which contains some assets.
 #### Index Manager
 Web console that facilitates and reviewing high-level Oak index configurations.
 
-* AEM > Tools > Operations > Diagnosis > Index Manager
-* http://localhost:4502/libs/granite/operations/content/diagnosistools/indexManager.html
+AEM > Tools > Operations > Diagnosis > [Index Manager](http://localhost:4502/libs/granite/operations/content/diagnosistools/indexManager.html)
 
 #### Query Performance & Explain Query
 Web console that lists recent slow and popular queries and provides detailed execution details for a specific query.
 
-*	AEM > Tools > Operations > Diagnosis > Query Performance
-*	http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html
+AEM > Tools > Operations > Diagnosis > [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html)
 
 #### :information_source: Re-indexing Oak Indexes via Index Manager
 Throughout this lab, re-indexing of the /oak:index/damAssetLucene will be required to make configuration changes to take effect.  
 
 Below are the steps required to re-index the damAssetLucene index.
-1. Open CRX/DE console: http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene
+1. Open the */oak:index/damAssetLucene* node in the [CRXDE](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene)
 2. Set *reindex* property to **true**
 3. Once re-index finished, the *reindex* property value must be equal to **false** and *reindexCount* incremented
 
@@ -55,14 +53,19 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 *	Full-text search operators
 
 ### Exercise
-#### Understand the query
 
-Perform a fulltext search on the term *mountain* on assets
-* AEM > Assets > File
-* Navigate to Assets root folder: http://localhost:4502/assets.html/content/dam
-* Search the term *mountain*
-<img src="images/search-asset.png" width="500" />
+#### Perform a fulltext search on Assets
 
+1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
+2. Select Filter on the left (Alt+5 shortcut can be used)
+<img src="images/filter-assets.png" width="800" />
+3. Filter by Files only (and not Folders) and type the term *mountain*
+<img src="images/search-assets.png" width="800" />
+4. Find the executed query in the **Popular Queries** tab of [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html) 
+5. Select the query and perform the explain
+<img src="images/explain-query.png" width="800" />
+
+The plan describes which OAK index will be used to execute this query; in this case the Lucene index named damAssetLucene is selected for use.
 
 ## Chapter 03 - Suggestions
 ## Chapter 04 - Spellcheck
