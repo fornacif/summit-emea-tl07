@@ -58,7 +58,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Select Filter on the left (Alt+5 shortcut can be used)
-<img src="images/filter-assets.png" width="800" />
+![](images/filter-assets.png")
 3. Filter by Files only (and not Folders) and type the term *mountain*
 <img src="images/search-assets.png" width="800" />
 4. Find the executed query in the **Popular Queries** tab of [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html) 
