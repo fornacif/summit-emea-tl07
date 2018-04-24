@@ -39,7 +39,7 @@ Developer Tools plug-in for the Chrome Web browser that uses Sling Log Tracer to
 
 *	http://adobe-consulting-services.github.io/acs-aem-tools/aem-chrome-plugin/
 
-#### Re-indexing Oak Indexes via Index Manager
+#### :information_source: Re-indexing Oak Indexes via Index Manager
 Throughout this lab, re-indexing of the /oak:index/damAssetLucene will be required to make configuration changes to take effect.  
 
 Below are the steps required to re-index the damAssetLucene index.
