@@ -12,33 +12,33 @@
 [Chapter 09 - Diagnosis](#chapter-09---diagnosis)  
 
 ## Chapter 01 - Startup
+
+### AEM Start
+Start AEM by executing the following command  
+```java -Xmx6G -jar cq-quickstart-*.jar -nobrowser -nofork```
+
 Using Chrome, log in to AEM Author at http://localhost:4502/
 * User name: admin
 * Password: admin
 
-### Adobe Developer Tools
+### Developer Tools
 #### Index Manager
-Web console that facilitates ~~re-indexing of Oak indices~~ and reviewing high-level Oak index configurations.
+Web console that facilitates and reviewing high-level Oak index configurations.
 
 * AEM > Tools > Operations > Diagnosis > Index Manager
 * http://localhost:4502/libs/granite/operations/content/diagnosistools/indexManager.html
 
-#### Query Performance
-Web console that lists recent slow and popular queries.
+#### Query Performance & Explain Query
+Web console that lists recent slow and popular queries and provides detailed execution details for a specific query.
 
 *	AEM > Tools > Operations > Diagnosis > Query Performance
 *	http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html
 
-#### Explain Query
-Web console that provides detailed execution details for a specific query.
+#### AEM Chrome Plug-in
+Developer Tools plug-in for the Chrome Web browser that uses Sling Log Tracer to exposed detailed logging directly in the browser.
 
-*	AEM > Tools > Operations > Diagnosis > Query Performance > Explain Query tab
-*	http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html
+*	http://adobe-consulting-services.github.io/acs-aem-tools/aem-chrome-plugin/
 
-#### QueryBuilder Debugger
-Executes QueryBuilder-based queries, provides the derived XPath expression and results.
-
-*	http://localhost:4502/libs/cq/search/content/querydebug.html
 
 ## Chapter 02 - Search fundamentals
 ## Chapter 03 - Suggestions
