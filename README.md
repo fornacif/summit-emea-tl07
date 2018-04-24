@@ -52,7 +52,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 
 ### Exercise
 
-#### Perform a fulltext search on Assets
+#### Perform a full-text search on Assets
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Select Filter on the left (Alt+5 shortcut can be used)
 ![](images/filter-assets.png)
@@ -71,12 +71,12 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 5.	Property specific configurations are defined under damAssetLucene/indexRules
 ![](images/assets-index.png)
 
-#### Fulltext operations
-Try out the following full text searches using the supported operators and note the changes in results:
+#### Full-text operations
+Try out the following full-text searches using the supported operators and note the changes in results:
 1. Group phrases: `mountain biking`
 2. Group phrases with using double-quotes: `"mountain biking"`
-3. Group phrases with using double-quotes: `mountain OR biking`
-4. Group phrases with using double-quotes: `mountain AND biking`
+3. OR operator: `mountain OR biking`
+4. AND operator: `mountain AND biking`
 
 ## Chapter 03 - Suggestions
 ## Chapter 04 - Spellcheck
