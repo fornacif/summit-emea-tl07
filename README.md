@@ -56,16 +56,9 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 
 #### Perform a fulltext search on Assets
 
-1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
-2. Select Filter on the left (Alt+5 shortcut can be used)
-![](images/filter-assets.png")
-3. Filter by Files only (and not Folders) and type the term *mountain*
-<img src="images/search-assets.png" width="800" />
-4. Find the executed query in the **Popular Queries** tab of [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html) 
-5. Select the query and perform the explain
-<img src="images/explain-query.png" width="800" />
 
-The plan describes which OAK index will be used to execute this query; in this case the Lucene index named damAssetLucene is selected for use.
+![](images/filter-assets.png")
+
 
 ## Chapter 03 - Suggestions
 ## Chapter 04 - Spellcheck
