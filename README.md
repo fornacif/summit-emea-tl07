@@ -1,7 +1,7 @@
 # TL07 - Boost your AEM Search
 
 ## Agenda
-[Chapter 01 - Startup](#chapter-01---startup)  
+[Chapter 01 - Boostrap](#chapter-01---bootstrap)  
 [Chapter 02 - Search fundamentals](#chapter-02---search-fundamentals)  
 [Chapter 03 - Suggestions](#chapter-03---suggestions)  
 [Chapter 04 - Spellcheck](#chapter-04---spellcheck)  
@@ -11,7 +11,7 @@
 [Chapter 08 - Smart Translation](#chapter-08---smart-translation)  
 [Chapter 09 - Diagnosis](#chapter-09---diagnosis)  
 
-## Chapter 01 - Startup
+## Chapter 01 - Boostrap
 
 ### AEM Start
 Start AEM by executing the following command  
@@ -20,6 +20,9 @@ Start AEM by executing the following command
 Using Chrome, log in to AEM Author at http://localhost:4502/
 * User name: admin
 * Password: admin
+
+### Content package
+Install content package which contains some assets.
 
 ### Developer Tools
 #### Index Manager
@@ -34,22 +37,26 @@ Web console that lists recent slow and popular queries and provides detailed exe
 *	AEM > Tools > Operations > Diagnosis > Query Performance
 *	http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html
 
-#### AEM Chrome Plug-in
-Developer Tools plug-in for the Chrome Web browser that uses Sling Log Tracer to exposed detailed logging directly in the browser.
-
-*	http://adobe-consulting-services.github.io/acs-aem-tools/aem-chrome-plugin/
-
 #### :information_source: Re-indexing Oak Indexes via Index Manager
 Throughout this lab, re-indexing of the /oak:index/damAssetLucene will be required to make configuration changes to take effect.  
 
 Below are the steps required to re-index the damAssetLucene index.
 1. Open CRX/DE console: http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene
 2. Set *reindex* property to **true**
-3. Once re-index finished, the *reindex* property value must be equal to **false** and *reindexCount* property incremented
-
+3. Once re-index finished, the *reindex* property value must be equal to **false** and *reindexCount* incremented
 
 ## Chapter 02 - Search fundamentals
+AEM search supports robust full-text search, provided by the Apache Lucene. 
 
+Lucene property indixes are at the core of AEM Search and must be well understood. This exercise covers:
+
+*	Definition of the OOTB damAssetLucene Oak Lucene property index
+*	Search query inspection
+*	Full-text search operators
+
+### Exercise
+#### Understand the query
+1. Perform a fulltext search on the term *mountain* on Assets
 
 
 ## Chapter 03 - Suggestions
