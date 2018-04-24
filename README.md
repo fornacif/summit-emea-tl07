@@ -56,7 +56,12 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 
 ### Exercise
 #### Understand the query
-1. Perform a fulltext search on the term *mountain* on Assets
+
+Perform a fulltext search on the term *mountain* on assets
+* AEM > Assets > File
+* Navigate to Assets root folder: http://localhost:4502/assets.html/content/dam
+* Search the term *mountain*
+[Search asset](images/search-asset.png)
 
 
 ## Chapter 03 - Suggestions
