@@ -37,7 +37,7 @@ Web console that lists recent slow and popular queries and provides detailed exe
 Throughout this lab, re-indexing of the /oak:index/damAssetLucene will be required to make configuration changes to take effect.  
 
 Below are the steps required to re-index the damAssetLucene index.
-1. Open the */oak:index/damAssetLucene* node in the [CRXDE](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene)
+1. Open the */oak:index/damAssetLucene* node in the [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene)
 2. Set *reindex* property to **true**
 3. Once re-index finished, the *reindex* property value must be equal to **false** and *reindexCount* incremented
 
@@ -53,7 +53,6 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 ### Exercise
 
 #### Perform a fulltext search on Assets
-
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Select Filter on the left (Alt+5 shortcut can be used)
 ![](images/filter-assets.png)
@@ -63,6 +62,21 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 ![](images/query-performance.png)
 5. Select the query and perform the explain
 ![](images/explain-query.png)
+
+#### Inspecting the damAssetLucene index definition
+1.	Open [CRXDE Lite](http://localhost:4502/crx/de)
+2.	Select /oak:index/damAssetLucene node
+3.	Core index configurations are on damAssetLucene 
+4.	Full-text aggregate configuration are defined under damAssetLucene/aggregates
+5.	Property specific configurations are defined under damAssetLucene/indexRules
+![](images/assets-index.png)
+
+#### Fulltext operations
+Try out the following full text searches using the supported operators and note the changes in results:
+1. Group phrases: `mountain biking`
+2. Group phrases with using double-quotes: `"mountain biking"`
+3. Group phrases with using double-quotes: `mountain OR biking`
+4. Group phrases with using double-quotes: `mountain AND biking`
 
 ## Chapter 03 - Suggestions
 ## Chapter 04 - Spellcheck
