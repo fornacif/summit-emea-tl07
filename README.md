@@ -184,7 +184,7 @@ else  if (itemsAddedCount < MAX_SUGGESTIONS && data.spellcheckSuggestion) {
 ```
 
 1. Open Package Manager in [CRXDE Lite](http://localhost:4502/crx/packmgr/index.jsp) 
-2. Install the following [package](resources/Chapter%2004%20-%20Spellcheck-1.0.0.zip)
+2. Install the [Chapter 04 - Spellcheck-1.0.0.zip](resources/Chapter%2004%20-%20Spellcheck-1.0.0.zip) package
 3. Click on the Search button and type term `skying`
 ![](images/search-spellcheck.png)
 
@@ -209,7 +209,7 @@ To understand how text analysis works, we need to understand 3 main concepts : a
 
 We are going first to bootstrap the index structure by defining the analyzer via composition.
 1. Open Package Manager in [CRXDE Lite](http://localhost:4502/crx/packmgr/index.jsp) 
-2. Install the following [package](resources/Chapter%2005%20-%20Analyzers-1.0.0.zip)
+2. Install the [Chapter 05 - Analyzers-1.0.0.zip](resources/Chapter%2005%20-%20Analyzers-1.0.0.zip) package
 3. Re-index the **damAssetLucene** index
 4. Verify searching `skiing` term works
 
