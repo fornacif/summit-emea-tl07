@@ -252,13 +252,13 @@ For example
 * The stemmer will derive the root word: develop 
 * Which includes content that contains derived forms such as “developer”, and “development”
 
+#### Exercise
 1. Verify searching `pants` works and `pant` doesn't 
 2. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters) 
 3. Add node name `PorterStem` of type *nt:unstructured*
 4. Save changes and re-index **damAssetLucene**
-5. Perform searches using the keywords
-  * `pants` and `pant`
-  * `run` and `running`
+5. Verify searching `pants` and `pant` is equivalent
+6. Verify searching `run` and `running` is equivalent
 
 ## Chapter 06 - Boosting
 ## Chapter 07 - Smart Tags
