@@ -294,7 +294,7 @@ For example
 :information_source: What if we search for `generals` or `generations` ?
 4. Add node name `StemmerOverride` of type *nt:unstructured* before the node *PorterStem*
 5. On *StemmerOverride* node add property `dictionary` of type *String* with value `dictionary.txt`
-6. Insert terms `generations	generation` and `generals	general` in *dictionary.txt*
+6. Insert terms `generations	generation` and `generals	general` in *dictionary.txt* (terms are tab-separated)
 ![](images/analyzers-dictionary.png)
 7. Save changes and re-index **damAssetLucene**
 8. Verify searching `general`, `generals`, `generation` and `generations` terms is correct
