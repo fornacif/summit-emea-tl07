@@ -184,11 +184,11 @@ else  if (itemsAddedCount < MAX_SUGGESTIONS && data.spellcheckSuggestion) {
 ```
 
 1. Open Package Manager in [CRXDE Lite](http://localhost:4502/crx/packmgr/index.jsp) 
-2. Install the following [package](resources/Chapter 04 - Spellcheck-1.0.0.zip)
+2. Install the following [package](resources/Chapter%2004%20-%20Spellcheck-1.0.0.zip)
 3. Click on the Search button and type term `skying`
 ![](images/search-spellcheck.png)
 
-#### :information_source: Spellcheck query
+#### Spellcheck query
 For getting spellcheck suggestion terms, the following query can be used to retrieve values:
 ```sql
 SELECT rep:spellcheck() FROM [nt:base] WHERE SPELLCHECK('skying') AND ISDESCENDANTNODE('/content/dam')
