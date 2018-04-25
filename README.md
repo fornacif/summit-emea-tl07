@@ -255,7 +255,7 @@ Stop words are effectively a black list of words that will not be added to the s
 ![](images/analyzers-stopwords.png)
 7. Verify searching `the`, `before` or `must` terms doesn't return any result anymore
 
-### :computer: Stemming Filter
+### Stemming Filter
 Stemming converts user-provided search words into their linguistic “root” thereby intelligently expanding the scope of the full-text search.
 
 Stemming both an index time and query time activity. At index time, stemmed terms (rather than full terms) are stored in the full text index. At query time, the user provided search terms are stemmed and passed in as the full-text term.
@@ -265,7 +265,7 @@ For example
 * The stemmer will derive the root word: develop 
 * Which includes content that contains derived forms such as “developer”, and “development”
 
-#### Exercise
+#### :computer: Configuration
 1. Verify searching `pants` works and `pant` doesn't 
 2. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters) 
 3. Add node name `PorterStem` of type *nt:unstructured*
@@ -273,6 +273,31 @@ For example
 4. Save changes and re-index **damAssetLucene**
 5. Verify searching `pants` and `pant` is equivalent
 6. Verify searching `run` and `running` is equivalent
+7. Verify searching `disappear`, `disappears`, `disappearing` and `disappeared` is equivalent
+
+#### :computer: Bonus - Fine Tuning
+1. Search for `university`. Is the term effectively contained in the Content Fragment ?
+2. This behaviour is explained by the fact that *university* and *universally* have the same root, *univers*
+:information_source: We can manage this situation by excluding the term *university* for being processed by the stemmer
+3. Add node name `KeywordMarker` of type *nt:unstructured* before the node *PorterStem*
+4. On *KeywordMarker* node add property `protected` of type *String* with value `protectedwords.txt`
+5. Insert term `university` in *protectedwords.txt*
+![](images/analyzers-protectedwords.png)
+6. Save changes and re-index **damAssetLucene**
+7. Verify searching `university` term doesn't return any result anymore
+
+#### :computer: Bonus - Super Fine Tuning
+
+1. Search for `general`. Is the term always contained in the Content Fragment ?
+2. This behaviour is explained by the fact that *general* and *generation* have the same root, *gener*
+3. As before, let's first insert terms `general` and `generation` in *protectedwords.txt*  
+4. What if we search for `generals` or `generations` ?
+5. Add node name `StemmerOverride` of type *nt:unstructured* before the node *PorterStem*
+6. On *StemmerOverride* node add property `dictionary` of type *String* with value `dictionary.txt`
+7. Insert terms `generations	generation` and `generals	general` in *dictionary.txt*
+![](images/analyzers-dictionary.png)
+8. Save changes and re-index **damAssetLucene**
+9. Verify searching `general`, `generals`, `generation` and `generations` terms is correct
 
 ## Chapter 06 - Boosting
 ## Chapter 07 - Smart Tags
