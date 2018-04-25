@@ -137,9 +137,9 @@ Spellcheck provides list of terms that exist in the content for user typed input
 ![](images/dcTitle-spellcheck.png)
 
 #### Validate spellcheck suggestions
-1. By default, TouchUI interface doesn't display spellcheck suggestion terms coming from Author search results
+1. By default, TouchUI interface doesn't display spellcheck suggestions in Omnisearch feature
 2. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam) 
-3. Open Chrome Developer Tools and select the *Network* tab
+3. Open [Chrome Developer Tools](chrome-devtools://devtools) and select the *Network* tab
 3. Click on the Search button and type term `skying` (note the typo)
 2. If we analyze the *omnisearch* request result, we can observe the spellcheckSuggestion JSON object containing a suggestion
 ```json
