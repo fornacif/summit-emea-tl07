@@ -116,11 +116,11 @@ There are two types of suggestion configurations:
 ![](images/suggestions-airliner-2.png)
 
 #### :information_source: Suggestion query
-For getting suggestion terms, the follwing query can be used to retrieve values:
+For getting suggestion terms, the following query can be used to retrieve values:
 ```sql
 SELECT rep:suggest() FROM [nt:base] WHERE SUGGEST('ski') AND ISDESCENDANTNODE('/a/b')
 ```
-More informations can be found on [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/query-engine.html#Suggestions)  
+More informations can be found on [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Suggestions)  
 
 ## Chapter 04 - Spellcheck
 ## Chapter 05 - Analyzers
