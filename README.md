@@ -221,8 +221,8 @@ By defining our own Analyzer, we lost the pre-configured Lower Case Filter.
 Synonyms allow different terms with equivalent meaning to be considered the same by full-text search.
 1. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
 2. Add node name `Synonym` of type *nt:unstructured*
-3. Add property `synonyms` of type *String* with value `synonyms.txt`
-4. Below *Synonym* node, create a file named `synonyms.txt` and enter `bike, cycle` and `wave, roller`
+3. On *Synonym* node add property `synonyms` of type *String* with value `synonyms.txt`
+4. Under *Synonym* node, create a file named `synonyms.txt` and enter `bike, cycle` and `wave, roller`
 ![](images/analyzers-synonym.png)
 5. Save changes and re-index **damAssetLucene**
 6. Verify searching `bike` and `cycle` is equivalent
@@ -237,12 +237,24 @@ In many languages we have special characters and they need to be handled properl
 ![](images/analyzers-ascii.png)
 5. Save changes and re-index **damAssetLucene**
 6. Verify searching `Montreal` and `Montréal` is equivalent
+7. Verify searching `Sjöberg` and `Sjoberg` is equivalent
 
 ### :information_source: Mapping characters
 Sometimes, we want to explicitly change one character by another. It can be handled by specifying *charFilters* node like the following.
 ![](images/analyzers-charFilters.png)
 
-### :computer: Stemming
+### :computer: Stop Words Filter
+Stop words are effectively a black list of words that will not be added to the search index and thus unsearchable. Managed industries may add subjective terms as stop terms, or search over user-generated content may leverage them to keep profanities being searchable.
+
+1. Verify searching `the`, `before` or `must` terms works
+2. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
+3. Add node name `Stop` of type *nt:unstructured*
+4. On *Stop* node add property `words` of type *String* with value `stopwords.txt`
+5. Under *Stop* node, create a file named `stopwords.txt` with this [content](resources/stopwords.txt)
+![](images/analyzers-stopwords.png)
+6. Verify searching `the`, `before` or `must` terms doesn't return any result anymore
+
+### :computer: Stemming Filter
 Stemming converts user-provided search words into their linguistic “root” thereby intelligently expanding the scope of the full-text search.
 
 Stemming both an index time and query time activity. At index time, stemmed terms (rather than full terms) are stored in the full text index. At query time, the user provided search terms are stemmed and passed in as the full-text term.
@@ -256,6 +268,7 @@ For example
 1. Verify searching `pants` works and `pant` doesn't 
 2. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters) 
 3. Add node name `PorterStem` of type *nt:unstructured*
+![](images/analyzers-porterstem.png)
 4. Save changes and re-index **damAssetLucene**
 5. Verify searching `pants` and `pant` is equivalent
 6. Verify searching `run` and `running` is equivalent
