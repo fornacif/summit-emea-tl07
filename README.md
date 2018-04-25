@@ -50,7 +50,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 *	Search query inspection
 *	Full-text search operators
 
-### Exercise
+### :computer: Exercise
 
 #### Perform a full-text search on Assets
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
@@ -85,7 +85,7 @@ There are two types of suggestion configurations:
 1. Property-based: returns the entire value (multi-word) of a property as a suggested term
 2. Aggregate-based: returns a list of single-word terms that match the user-provided search term
 
-### Exercise
+### :computer: Exercise
 #### Validate search suggestions
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Click on the Search button and enter the term `trail`
