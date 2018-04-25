@@ -225,6 +225,7 @@ Synonyms allow different terms with equivalent meaning to be considered the same
 4. Below *Synonym* node, create a file named `synonyms.txt` and enter the following
 ```
 bike, cycle
+wave, roller
 ```
 ![](images/analyzers-synonym.png)
 5. Re-index **damAssetLucene**
