@@ -223,10 +223,6 @@ Synonyms allow different terms with equivalent meaning to be considered the same
 2. Add node name `Synonym` of type *nt:unstructured*
 3. Add property `synonyms` of type *String* with value `synonyms.txt`
 4. Below *Synonym* node, create a file named `synonyms.txt` and enter the following
-```
-bike, cycle
-wave, roller
-```
 ![](images/analyzers-synonym.png)
 5. Re-index **damAssetLucene**
 6. Verify searching `bike` and `cycle` is equivalent
