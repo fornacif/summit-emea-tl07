@@ -37,7 +37,7 @@ Web console that lists recent slow and popular queries and provides detailed exe
 Throughout this lab, re-indexing of the /oak:index/damAssetLucene will be required to make configuration changes to take effect.  
 
 Below are the steps required to re-index the damAssetLucene index.
-1. Open the */oak:index/damAssetLucene* node in the [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene)
+1. Open the */oak:index/damAssetLucene* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene)
 2. Set *reindex* property to `true`
 3. Once re-index finished, the *reindex* property value must be equal to **false** and *reindexCount* incremented
 
@@ -50,9 +50,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 *	Search query inspection
 *	Full-text search operators
 
-### :computer: Exercise
-
-#### Perform a full-text search on Assets
+### :computer: Perform a full-text search on Assets - Exercise
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Select Filter on the left (Alt+5 shortcut can be used)
 ![](images/filter-assets.png)
@@ -64,7 +62,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 
 ![](images/explain-query.png)
 
-#### Inspecting the damAssetLucene index definition
+### :computer: Inspecting the damAssetLucene index definition - Exercise
 1.	Open [CRXDE Lite](http://localhost:4502/crx/de)
 2.	Select /oak:index/damAssetLucene node
 3.	Core index configurations are on damAssetLucene 
@@ -72,7 +70,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 5.	Property specific configurations are defined under damAssetLucene/indexRules
 ![](images/assets-index.png)
 
-#### Full-text operations
+### :computer: Full-text operations - Exercise
 Try out the following full-text searches using the supported operators and note the changes in results:
 1. Group phrases: `mountain biking`
 2. Group phrases with using double-quotes: `"mountain biking"`
@@ -85,8 +83,7 @@ There are two types of suggestion configurations:
 1. Property-based: returns the entire value (multi-word) of a property as a suggested term
 2. Aggregate-based: returns a list of single-word terms that match the user-provided search term
 
-### :computer: Exercise
-#### Validate search suggestions
+### :computer: Validate search suggestions - Exercise
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Click on the Search button and type the term `trail`
 3. Verify AEM is providing suggestions for potential matching results
@@ -94,7 +91,7 @@ There are two types of suggestion configurations:
 4. In this example, we observe property-based suggestions. *dc:title* and *dc:description* asset properties are configured to provide suggestion inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSuggest** must be equal to *true*
 ![](images/dcTitle-suggestion.png)
 
-#### Configure search suggestions
+### :computer: Configure search suggestions - Exercise
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Create a folder named `Aviation`
 3. Enter this new folder and upload this image: [Big Airliner](images/airline_engine.jpg)
@@ -115,7 +112,7 @@ There are two types of suggestion configurations:
 15. After maximum 1 minute, you should see aggregate-based suggestions for terms *airliner*, *big* or even *mountain*
 ![](images/suggestions-airliner-2.png)
 
-#### :information_source: Suggestion query
+### :information_source: Suggestion query
 For getting suggestion terms, the following query can be used to retrieve values:
 ```sql
 SELECT rep:suggest() FROM [nt:base] WHERE SUGGEST('airliner') AND ISDESCENDANTNODE('/content/dam')
@@ -125,9 +122,7 @@ More informations can be found in [OAK documentation](https://jackrabbit.apache.
 ## Chapter 04 - Spellcheck
 Spellcheck provides list of terms that exist in the content for user typed inputs that doesn't exactly match. It's mainly used to fix user typos by providing suggestions that will help them maximize results. By default the spellcheck is disabled in AEM.
 
-### :computer: Exercise
-
-#### Configure spellcheck
+### :computer: Configure spellcheck - Exercise
 1. Open configurations [OSGi Console](http://localhost:4502/system/console/configMgr)
 2. Search for the configuration [com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl.name](http://localhost:4502/system/console/configMgr/com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl)
 3. Activate the option `Include spellcheck in suggestions`
@@ -136,7 +131,7 @@ Spellcheck provides list of terms that exist in the content for user typed input
 4. As for previous suggestions, *dc:title* and *dc:description* asset properties are configured to provide spellcheck inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSpellcheck** must be equal to *true*
 ![](images/dcTitle-spellcheck.png)
 
-#### Validate spellcheck suggestions
+### :computer: Validate spellcheck suggestions - Exercise
 1. By default, TouchUI interface doesn't display spellcheck suggestions in Omnisearch feature
 2. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam) 
 3. Open Chrome Developer Tools and select the *Network* tab
@@ -157,7 +152,7 @@ Spellcheck provides list of terms that exist in the content for user typed input
 }
 ```
 
-#### Display spellcheck suggestions
+### :computer: Display spellcheck suggestions - Exercise
 We are going to customize the TouchUI interface to display to Author users spellcheck suggestions. The file /libs/granite/ui/components/shell/clientlibs/shell/js/omnisearch.js must be customized with the following changes:
 ```javascript
 // Line 424
@@ -188,7 +183,7 @@ else  if (itemsAddedCount < MAX_SUGGESTIONS && data.spellcheckSuggestion) {
 3. Click on the Search button and type term `skying`
 ![](images/search-spellcheck.png)
 
-#### :information_source: Spellcheck query
+### :information_source: Spellcheck query
 For getting spellcheck suggestion terms, the following query can be used to retrieve values:
 ```sql
 SELECT rep:spellcheck() FROM [nt:base] WHERE SPELLCHECK('skying') AND ISDESCENDANTNODE('/content/dam')
@@ -210,8 +205,20 @@ To understand how text analysis works, we need to understand 3 main concepts : a
 We are going first to bootstrap the index structure by defining the analyzer via composition.
 1. Open Package Manager in [CRXDE Lite](http://localhost:4502/crx/packmgr/index.jsp) 
 2. Install the [Chapter 05 - Analyzers-1.0.0.zip](resources/Chapter%2005%20-%20Analyzers-1.0.0.zip) package
-3. Re-index the **damAssetLucene** index
+3. Re-index **damAssetLucene**
 4. Verify searching `skiing` term works
+
+### :computer: Lower Case Filter - Exercise
+By defining our own Analyzer, we lost the pre-configured Lower Case Filter.
+1. Compare searching `skiing` and `Skiing` terms
+2. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
+3. Add node name `LowerCase` of type *nt:unstructured*
+4. Re-index **damAssetLucene**
+5. Compare again searching `skiing` and `Skiing` terms
+
+### :computer: Synonym Filter - Exercise
+Synonyms allow different terms with equivalent meaning to be considered the same by full-text search.
+
 
 ## Chapter 06 - Boosting
 ## Chapter 07 - Smart Tags
