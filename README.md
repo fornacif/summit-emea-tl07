@@ -97,23 +97,28 @@ There are two types of suggestion configurations:
 #### Configure search suggestions
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Create a folder named `Aviation`
-3. Upload this image: [Big Airliner](images/airline_engine.jpg)
-4. Click on the Search button and enter the term `airliner`
+3. Enter this new folder and upload this image: [Big Airliner](images/airline_engine.jpg)
+4. Click on the Search button and enter term `airliner`
 5. :information_source: We can observe that no suggestions are provided. Indeed, the default update frequency is set to 10 minutes
 6. Open [CRXDE Lite](http://localhost:4502/crx/de) and select */oak:index/damAssetLucene node*
-7. Create a child node `suggestion` of type *nt:unstructured*
-8. Add a property `suggestUpdateFrequencyMinutes` of type *Long* with a value equals to `1` 
+7. Create child node `suggestion` of type *nt:unstructured*
+8. Add property `suggestUpdateFrequencyMinutes` of type *Long* with value equals to `1` 
 ![](images/suggestions-update-frequency.png)
-9. Select */oak:index/damAssetLucene* node and add a property `refresh` of type *Boolean* with value equals to `true`
+9. Select */oak:index/damAssetLucene* node and add property `refresh` of type *Boolean* with value equals to `true`
 10. Save changes and refresh the node *damAssetLucene*, we can observe the *refresh* property disappeared
-11. After maximum 1 minute, you should see suggestions for the term *airliner*
+11. After maximum 1 minute, you should see suggestions for term *airliner*
 ![](images/suggestions-airliner-1.png)
-12. Select again */oak:index/damAssetLucene/suggestion* and  a property `suggestAnalyzed` of type *Boolean* with value equals to `true`
+12. Select again */oak:index/damAssetLucene/suggestion* and add property `suggestAnalyzed` of type *Boolean* with value equals to `true`
 ![](images/suggestions-suggestAnalyzed.png)
 13. Select */oak:index/damAssetLucene* node and add a property `reindex` of type *Boolean* with value equals to `true`
 14. Save changes and refresh the node *damAssetLucene*, once re-index done the *reindex* property value must be equal to **false** and *reindexCount* incremented
-15. After maximum 1 minute, you should see aggregate-based suggestions for the term *airliner*, *big* or even *mountain*
+15. After maximum 1 minute, you should see aggregate-based suggestions for terms *airliner*, *big* or even *mountain*
 ![](images/suggestions-airliner-2.png)
+
+#### :information_source: Suggestion query
+For getting suggestion terms, the follwing query can be used to retrieve values:
+```SELECT rep:suggest() FROM [nt:base] WHERE SUGGEST('ski') AND ISDESCENDANTNODE('/a/b')```
+More informations can be found on [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/query-engine.html#Suggestions)  
 
 ## Chapter 04 - Spellcheck
 ## Chapter 05 - Analyzers
