@@ -38,7 +38,7 @@ Throughout this lab, re-indexing of the /oak:index/damAssetLucene will be requir
 
 Below are the steps required to re-index the damAssetLucene index.
 1. Open the */oak:index/damAssetLucene* node in the [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene)
-2. Set *reindex* property to **true**
+2. Set *reindex* property to `true`
 3. Once re-index finished, the *reindex* property value must be equal to **false** and *reindexCount* incremented
 
 ## Chapter 02 - Search fundamentals
@@ -60,7 +60,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 ![](images/search-assets.png)
 4. Find the executed query in the **Popular Queries** tab of [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html) 
 ![](images/query-performance.png)
-5. Select the query, click on :question:`explain` and analyze the execution plan. The plan describes which Oak index will be used to execute this query; in this case the Lucene index named **damAssetLucene** is selected for use.
+5. Select the query, click on :question:`Explain` and analyze the execution plan. The plan describes which Oak index will be used to execute this query; in this case the Lucene index named **damAssetLucene** is selected for use.
 
 ![](images/explain-query.png)
 
@@ -80,6 +80,41 @@ Try out the following full-text searches using the supported operators and note 
 4. AND operator: `mountain AND biking`
 
 ## Chapter 03 - Suggestions
+Suggestions provide list of terms or phrases that exist in the content and match a user-provided initial search term.  
+There are two types of suggestion configurations:
+1. Property-based: returns the entire value (multi-word) of a property as a suggested term
+2. Aggregate-based: returns a list of single-word terms that match the user-provided search term
+
+### Exercise
+#### Validate search suggestions
+1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
+2. Click on the Search button and enter the term `trail`
+3. Verify AEM is providing suggestions for potential matching results
+![](images/search-suggestions.png)
+4. In this example, we observe property-based suggestions. *dc:title* and *dc:description* asset properties are configured to provide suggestion inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSuggest** must be equal to *true*
+![](images/dcTitle-suggestion.png)
+
+#### Configure search suggestions
+1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
+2. Create a folder named `Aviation`
+3. Upload this image: [Big Airliner](images/airline_engine.jpg)
+4. Click on the Search button and enter the term `airliner`
+5. :information_source: We can observe that no suggestions are provided. Indeed, the default update frequency is set to 10 minutes
+6. Open [CRXDE Lite](http://localhost:4502/crx/de) and select */oak:index/damAssetLucene node*
+7. Create a child node `suggestion` of type *nt:unstructured*
+8. Add a property `suggestUpdateFrequencyMinutes` of type *Long* with a value equals to `1` 
+![](images/suggestions-update-frequency.png)
+9. Select */oak:index/damAssetLucene* node and add a property `refresh` of type *Boolean* with value equals to `true`
+10. Save changes and refresh the node *damAssetLucene*, we can observe the *refresh* property disappeared
+11. After maximum 1 minute, you should see suggestions for the term *airliner*
+![](images/suggestions-airliner-1.png)
+12. Select again */oak:index/damAssetLucene/suggestion* and  a property `suggestAnalyzed` of type *Boolean* with value equals to `true`
+![](images/suggestions-suggestAnalyzed.png)
+13. Select */oak:index/damAssetLucene* node and add a property `reindex` of type *Boolean* with value equals to `true`
+14. Save changes and refresh the node *damAssetLucene*, once re-index done the *reindex* property value must be equal to **false** and *reindexCount* incremented
+15. After maximum 1 minute, you should see aggregate-based suggestions for the term *airliner*, *big* or even *mountain*
+![](images/suggestions-airliner-2.png)
+
 ## Chapter 04 - Spellcheck
 ## Chapter 05 - Analyzers
 ## Chapter 06 - Boosting
