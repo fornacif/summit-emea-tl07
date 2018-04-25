@@ -132,8 +132,8 @@ Spellcheck provides list of terms that exist in the content for user typed input
 2. Search for the configuration [com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl.name](http://localhost:4502/system/console/configMgr/com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl)
 3. Activate the option `Include spellcheck in suggestions`
 ![](images/spellcheck-configuration.png)
-4. :information_source: Note this configuration defines also the min text length for suggestions
-5. As for previous suggestions, *dc:title* and *dc:description* asset properties are configured to provide spellcheck inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSpellcheck** must be equal to *true*
+:information_source: Note this configuration defines also the min text length for suggestions
+4. As for previous suggestions, *dc:title* and *dc:description* asset properties are configured to provide spellcheck inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSpellcheck** must be equal to *true*
 ![](images/dcTitle-spellcheck.png)
 
 #### Validate spellcheck suggestions
@@ -188,12 +188,12 @@ else  if (itemsAddedCount < MAX_SUGGESTIONS && data.spellcheckSuggestion) {
 3. Click on the Search button and type term `skying`
 ![](images/search-spellcheck.png)
 
-#### Spellcheck query
+#### :information_source: Spellcheck query
 For getting spellcheck suggestion terms, the following query can be used to retrieve values:
 ```sql
 SELECT rep:spellcheck() FROM [nt:base] WHERE SPELLCHECK('skying') AND ISDESCENDANTNODE('/content/dam')
 ```
-:information_source: More informations can be found in [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Spellchecking)
+More informations can be found in [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Spellchecking)
 
 ## Chapter 05 - Analyzers
 ## Chapter 06 - Boosting
