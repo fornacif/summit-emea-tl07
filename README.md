@@ -50,7 +50,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 *	Search query inspection
 *	Full-text search operators
 
-### :computer: Perform a full-text search on Assets - Exercise
+### :computer: Perform a full-text search on Assets
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Select Filter on the left (Alt+5 shortcut can be used)
 ![](images/filter-assets.png)
@@ -62,7 +62,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 
 ![](images/explain-query.png)
 
-### :computer: Inspecting the damAssetLucene index definition - Exercise
+### :computer: Inspecting the damAssetLucene index definition
 1.	Open [CRXDE Lite](http://localhost:4502/crx/de)
 2.	Select /oak:index/damAssetLucene node
 3.	Core index configurations are on damAssetLucene 
@@ -70,7 +70,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 5.	Property specific configurations are defined under damAssetLucene/indexRules
 ![](images/assets-index.png)
 
-### :computer: Full-text operations - Exercise
+### :computer: Full-text operations
 Try out the following full-text searches using the supported operators and note the changes in results:
 1. Group phrases: `mountain biking`
 2. Group phrases with using double-quotes: `"mountain biking"`
@@ -83,7 +83,7 @@ There are two types of suggestion configurations:
 1. Property-based: returns the entire value (multi-word) of a property as a suggested term
 2. Aggregate-based: returns a list of single-word terms that match the user-provided search term
 
-### :computer: Validate search suggestions - Exercise
+### :computer: Validate search suggestions
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Click on the Search button and type the term `trail`
 3. Verify AEM is providing suggestions for potential matching results
@@ -91,7 +91,7 @@ There are two types of suggestion configurations:
 4. In this example, we observe property-based suggestions. *dc:title* and *dc:description* asset properties are configured to provide suggestion inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSuggest** must be equal to *true*
 ![](images/dcTitle-suggestion.png)
 
-### :computer: Configure search suggestions - Exercise
+### :computer: Configure search suggestions
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Create a folder named `Aviation`
 3. Enter this new folder and upload this image: [Big Airliner](images/airline_engine.jpg)
@@ -122,7 +122,7 @@ More informations can be found in [OAK documentation](https://jackrabbit.apache.
 ## Chapter 04 - Spellcheck
 Spellcheck provides list of terms that exist in the content for user typed inputs that doesn't exactly match. It's mainly used to fix user typos by providing suggestions that will help them maximize results. By default the spellcheck is disabled in AEM.
 
-### :computer: Configure spellcheck - Exercise
+### :computer: Configure spellcheck
 1. Open configurations [OSGi Console](http://localhost:4502/system/console/configMgr)
 2. Search for the configuration [com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl.name](http://localhost:4502/system/console/configMgr/com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl)
 3. Activate the option `Include spellcheck in suggestions`
@@ -131,7 +131,7 @@ Spellcheck provides list of terms that exist in the content for user typed input
 4. As for previous suggestions, *dc:title* and *dc:description* asset properties are configured to provide spellcheck inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSpellcheck** must be equal to *true*
 ![](images/dcTitle-spellcheck.png)
 
-### :computer: Validate spellcheck suggestions - Exercise
+### :computer: Validate spellcheck suggestions
 1. By default, TouchUI interface doesn't display spellcheck suggestions in Omnisearch feature
 2. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam) 
 3. Open Chrome Developer Tools and select the *Network* tab
@@ -152,7 +152,7 @@ Spellcheck provides list of terms that exist in the content for user typed input
 }
 ```
 
-### :computer: Display spellcheck suggestions - Exercise
+### :computer: Display spellcheck suggestions
 We are going to customize the TouchUI interface to display to Author users spellcheck suggestions. The file /libs/granite/ui/components/shell/clientlibs/shell/js/omnisearch.js must be customized with the following changes:
 ```javascript
 // Line 424
@@ -208,7 +208,7 @@ We are going first to bootstrap the index structure by defining the analyzer via
 3. Re-index **damAssetLucene**
 4. Verify searching `skiing` term works
 
-### :computer: Lower Case Filter - Exercise
+### :computer: Lower Case Filter
 By defining our own Analyzer, we lost the pre-configured Lower Case Filter.
 1. Compare searching `skiing` and `Skiing` terms
 2. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
@@ -216,7 +216,7 @@ By defining our own Analyzer, we lost the pre-configured Lower Case Filter.
 4. Re-index **damAssetLucene**
 5. Compare again searching `skiing` and `Skiing` terms
 
-### :computer: Synonym Filter - Exercise
+### :computer: Synonym Filter
 Synonyms allow different terms with equivalent meaning to be considered the same by full-text search.
 
 
