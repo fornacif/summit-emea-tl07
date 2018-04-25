@@ -250,9 +250,10 @@ Stop words are effectively a black list of words that will not be added to the s
 2. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
 3. Add node name `Stop` of type *nt:unstructured*
 4. On *Stop* node add property `words` of type *String* with value `stopwords.txt`
-5. Under *Stop* node, create a file named `stopwords.txt` with this [content](resources/stopwords.txt)
+5. On *Stop* node add property `format` of type *String* with value `snowball`
+6. Under *Stop* node, create a file named `stopwords.txt` with this [content](resources/stopwords.txt)
 ![](images/analyzers-stopwords.png)
-6. Verify searching `the`, `before` or `must` terms doesn't return any result anymore
+7. Verify searching `the`, `before` or `must` terms doesn't return any result anymore
 
 ### :computer: Stemming Filter
 Stemming converts user-provided search words into their linguistic “root” thereby intelligently expanding the scope of the full-text search.
