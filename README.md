@@ -222,11 +222,24 @@ Synonyms allow different terms with equivalent meaning to be considered the same
 1. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
 2. Add node name `Synonym` of type *nt:unstructured*
 3. Add property `synonyms` of type *String* with value `synonyms.txt`
-4. Below *Synonym* node, create a file named `synonyms.txt` and enter the following
+4. Below *Synonym* node, create a file named `synonyms.txt` and enter `bike, cycle` and `wave, roller`
 ![](images/analyzers-synonym.png)
 5. Re-index **damAssetLucene**
 6. Verify searching `bike` and `cycle` is equivalent
 7. Verify searching `wave` and `roller` is equivalent
+
+### :computer: ASCII Folding Filter
+In many languages we have special characters and they need to be handled properly.
+1. Navigate to *Navigation* folder and upload this image: [Montreal Airport](images/airport-montreal.jpeg)
+2. Verify searching `Montreal` works and `Montréal` with accent doesn't
+3. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
+4. Add node name `ASCIIFolding` of type *nt:unstructured*
+![](images/analyzers-ascii.png)
+5. Verify searching `Montreal` and `Montréal` is equivalent
+
+### :information_source: Mapping characters
+Sometimes, we want to explicitly change one character by another. It can be handled by specifying *charFilters* node like the following.
+![](images/analyzers-charFilters.png)
 
 ## Chapter 06 - Boosting
 ## Chapter 07 - Smart Tags
