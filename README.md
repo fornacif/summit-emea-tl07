@@ -291,13 +291,13 @@ For example
 1. Search for term `general`. Is the term always contained in the Content Fragment ?
 2. This behaviour is explained by the fact that *general* and *generation* have the same root, *gener*
 3. As before, let's first insert terms `general` and `generation` in *protectedwords.txt*  
-4. What if we search for `generals` or `generations` ?
-5. Add node name `StemmerOverride` of type *nt:unstructured* before the node *PorterStem*
-6. On *StemmerOverride* node add property `dictionary` of type *String* with value `dictionary.txt`
-7. Insert terms `generations	generation` and `generals	general` in *dictionary.txt*
+:information_source: What if we search for `generals` or `generations` ?
+4. Add node name `StemmerOverride` of type *nt:unstructured* before the node *PorterStem*
+5. On *StemmerOverride* node add property `dictionary` of type *String* with value `dictionary.txt`
+6. Insert terms `generations	generation` and `generals	general` in *dictionary.txt*
 ![](images/analyzers-dictionary.png)
-8. Save changes and re-index **damAssetLucene**
-9. Verify searching `general`, `generals`, `generation` and `generations` terms is correct
+7. Save changes and re-index **damAssetLucene**
+8. Verify searching `general`, `generals`, `generation` and `generations` terms is correct
 
 ## Chapter 06 - Boosting
 ## Chapter 07 - Smart Tags
