@@ -96,7 +96,7 @@ There are two types of suggestion configurations:
 2. Create a folder named `Aviation`
 3. Enter this new folder and upload this image: [Big Airliner](images/airline_engine.jpg)
 4. Click on the Search button and type term `airliner`
-5. :information_source: We can observe that no suggestions are provided. Indeed, the default update frequency is set to 10 minutes
+:information_source: We can observe that no suggestions are provided. Indeed, the default update frequency is set to 10 minutes
 6. Open [CRXDE Lite](http://localhost:4502/crx/de) and select */oak:index/damAssetLucene* node
 7. Create child node `suggestion` of type *nt:unstructured*
 8. Add property `suggestUpdateFrequencyMinutes` of type *Long* with value equals to `1` 
