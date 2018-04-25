@@ -213,12 +213,23 @@ By defining our own Analyzer, we lost the pre-configured Lower Case Filter.
 1. Compare searching `skiing` and `Skiing` terms
 2. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
 3. Add node name `LowerCase` of type *nt:unstructured*
+![](images/analyzers-lowerCase.png)
 4. Re-index **damAssetLucene**
 5. Compare again searching `skiing` and `Skiing` terms
 
 ### :computer: Synonym Filter
 Synonyms allow different terms with equivalent meaning to be considered the same by full-text search.
-
+1. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
+2. Add node name `Synonym` of type *nt:unstructured*
+3. Add property `synonyms` of type *String* with value `synonyms.txt`
+4. Below *Synonym* node, create a file named `synonyms.txt` and enter the following
+```
+bike, cycle
+```
+![](images/analyzers-synonym.png)
+5. Re-index **damAssetLucene**
+6. Verify searching `bike` and `cycle` is equivalent
+7. Verify searching `wave` and `roller` is equivalent
 
 ## Chapter 06 - Boosting
 ## Chapter 07 - Smart Tags
