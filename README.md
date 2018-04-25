@@ -60,7 +60,7 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 ![](images/search-assets.png)
 4. Find the executed query in the **Popular Queries** tab of [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html) 
 ![](images/query-performance.png)
-5. Select the query, click on :grey_question: explain and analyze the execution plan. The plan describes which Oak index will be used to execute this query; in this case the Lucene index named **damAssetLucene** is selected for use.
+5. Select the query, click on :question:`explain` and analyze the execution plan. The plan describes which Oak index will be used to execute this query; in this case the Lucene index named **damAssetLucene** is selected for use.
 
 ![](images/explain-query.png)
 
