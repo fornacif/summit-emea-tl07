@@ -139,9 +139,9 @@ Spellcheck provides list of terms that exist in the content for user typed input
 #### Validate spellcheck suggestions
 1. By default, TouchUI interface doesn't display spellcheck suggestions in Omnisearch feature
 2. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam) 
-3. Open [Chrome Developer Tools](chrome-devtools://devtools) and select the *Network* tab
-3. Click on the Search button and type term `skying` (note the typo)
-2. If we analyze the *omnisearch* request result, we can observe the spellcheckSuggestion JSON object containing a suggestion
+3. Open Chrome Developer Tools and select the *Network* tab
+4. Click on the Search button and type term `skying` (note the typo)
+5. If we analyze the *omnisearch* request response, we can observe the *spellcheckSuggestion* JSON object containing a suggestion
 ```json
 {  
    "availableModules":[  
@@ -158,7 +158,7 @@ Spellcheck provides list of terms that exist in the content for user typed input
 ```
 
 #### Display spellcheck suggestions
-We are going to customize the TouchUI interface to display to Author users spellcheck suggestions. The file omnisearch.js must be modified with the following changes:
+We are going to customize the TouchUI interface to display to Author users spellcheck suggestions. The file /libs/granite/ui/components/shell/clientlibs/shell/js/omnisearch.js must be customized with the following changes:
 ```javascript
 // Line 424
 if (target.spellcheckSuggestion) {
@@ -168,9 +168,9 @@ if (target.spellcheckSuggestion) {
 }  
 ```
 ```javascript
-// Line 556
+// Line 552
 else  if (itemsAddedCount < MAX_SUGGESTIONS && data.spellcheckSuggestion) {
-		data.spellcheckSuggestion.some(function(item, index) {
+	data.spellcheckSuggestion.some(function(item, index) {
         buttonList.items.add({
             value: item,
             content: {
@@ -182,6 +182,11 @@ else  if (itemsAddedCount < MAX_SUGGESTIONS && data.spellcheckSuggestion) {
     });
 }
 ```
+
+1. Open Package Manager in [CRXDE Lite](http://localhost:4502/crx/packmgr/index.jsp) 
+2. Install the following [package](resources/Chapter 04 - Spellcheck-1.0.0.zip)
+3. Click on the Search button and type term `skying`
+![](images/search-spellcheck.png)
 
 #### :information_source: Spellcheck query
 For getting spellcheck suggestion terms, the following query can be used to retrieve values:
