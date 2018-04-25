@@ -88,7 +88,7 @@ There are two types of suggestion configurations:
 ### :computer: Exercise
 #### Validate search suggestions
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
-2. Click on the Search button and enter the term `trail`
+2. Click on the Search button and type the term `trail`
 3. Verify AEM is providing suggestions for potential matching results
 ![](images/search-suggestions.png)
 4. In this example, we observe property-based suggestions. *dc:title* and *dc:description* asset properties are configured to provide suggestion inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSuggest** must be equal to *true*
@@ -98,7 +98,7 @@ There are two types of suggestion configurations:
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Create a folder named `Aviation`
 3. Enter this new folder and upload this image: [Big Airliner](images/airline_engine.jpg)
-4. Click on the Search button and enter term `airliner`
+4. Click on the Search button and type term `airliner`
 5. :information_source: We can observe that no suggestions are provided. Indeed, the default update frequency is set to 10 minutes
 6. Open [CRXDE Lite](http://localhost:4502/crx/de) and select */oak:index/damAssetLucene node*
 7. Create child node `suggestion` of type *nt:unstructured*
@@ -118,11 +118,78 @@ There are two types of suggestion configurations:
 #### :information_source: Suggestion query
 For getting suggestion terms, the following query can be used to retrieve values:
 ```sql
-SELECT rep:suggest() FROM [nt:base] WHERE SUGGEST('ski') AND ISDESCENDANTNODE('/a/b')
+SELECT rep:suggest() FROM [nt:base] WHERE SUGGEST('airliner') AND ISDESCENDANTNODE('/content/dam')
 ```
-More informations can be found on [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Suggestions)  
+More informations can be found in [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Suggestions)  
 
 ## Chapter 04 - Spellcheck
+Spellcheck provides list of terms that exist in the content for user typed inputs that doesn't exactly match. It's mainly used to fix user typos by providing suggestions that will help them maximize results. By default the spellcheck is disabled in AEM.
+
+### :computer: Exercise
+
+#### Configure spellcheck
+1. Open configurations [OSGi Console](http://localhost:4502/system/console/configMgr)
+2. Search for the configuration [com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl.name](http://localhost:4502/system/console/configMgr/com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl)
+3. Activate the option `Include spellcheck in suggestions`
+![](images/spellcheck-configuration.png)
+4. :information_source: Note this configuration defines also the min text length for suggestions
+5. As for previous suggestions, *dc:title* and *dc:description* asset properties are configured to provide spellcheck inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSpellcheck** must be equal to *true*
+![](images/dcTitle-spellcheck.png)
+
+#### Validate spellcheck suggestions
+1. By default, TouchUI interface doesn't display spellcheck suggestion terms coming from Author search results
+2. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam) 
+3. Open Chrome Developer Tools and select the *Network* tab
+3. Click on the Search button and type term `skying` (note the typo)
+2. If we analyze the *omnisearch* request result, we can observe the spellcheckSuggestion JSON object containing a suggestion
+```json
+{  
+   "availableModules":[  
+      {  
+         "name":"Assets",
+         "contentNodePath":"/libs/granite/omnisearch/content/metadata/asset",
+         "id":"asset"
+      }
+   ],
+   "spellcheckSuggestion":[  
+      "skiing"
+   ]
+}
+```
+
+#### Display spellcheck suggestions
+We are going to customize the TouchUI interface to display to Author users spellcheck suggestions. The file omnisearch.js must be modified with the following changes:
+```javascript
+// Line 424
+if (target.spellcheckSuggestion) {
+    input.value = target.spellcheckSuggestion;
+} else {
+    input.value = target.value || target.content.textContent;
+}  
+```
+```javascript
+// Line 556
+else  if (itemsAddedCount < MAX_SUGGESTIONS && data.spellcheckSuggestion) {
+		data.spellcheckSuggestion.some(function(item, index) {
+        buttonList.items.add({
+            value: item,
+            content: {
+                innerHTML: "<span class='u-coral-text-secondary'>Do you mean: " + item + "</span>"
+            }
+        });
+
+        return ++itemsAddedCount >= MAX_SUGGESTIONS;
+    });
+}
+```
+
+#### :information_source: Spellcheck query
+For getting spellcheck suggestion terms, the following query can be used to retrieve values:
+```sql
+SELECT rep:spellcheck() FROM [nt:base] WHERE SPELLCHECK('skying') AND ISDESCENDANTNODE('/content/dam')
+```
+:information_source: More informations can be found in [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Spellchecking)
+
 ## Chapter 05 - Analyzers
 ## Chapter 06 - Boosting
 ## Chapter 07 - Smart Tags
