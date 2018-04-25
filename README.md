@@ -277,7 +277,7 @@ For example
 
 #### :computer: Bonus - Fine Tuning
 1. Search for `university`. Is the term effectively contained in the Content Fragment ?
-2. This behaviour is explained by the fact that *university* and *universally* have the same root, *univers*
+2. This behaviour is explained by the fact that *university* and *universally* have the same root, *univers*  
 :information_source: We can manage this situation by excluding the term *university* for being processed by the stemmer
 3. Add node name `KeywordMarker` of type *nt:unstructured* before the node *PorterStem*
 4. On *KeywordMarker* node add property `protected` of type *String* with value `protectedwords.txt`
@@ -288,7 +288,7 @@ For example
 
 #### :computer: Bonus - Super Fine Tuning
 
-1. Search for `general`. Is the term always contained in the Content Fragment ?
+1. Search for term `general`. Is the term always contained in the Content Fragment ?
 2. This behaviour is explained by the fact that *general* and *generation* have the same root, *gener*
 3. As before, let's first insert terms `general` and `generation` in *protectedwords.txt*  
 4. What if we search for `generals` or `generations` ?
