@@ -309,7 +309,8 @@ Lucene fulltext indexing supports the ability to boost or weight specific metada
 2. Open *Advanced* metadata tab and add `running` item in *Search Promote* fields
 ![](images/boost-keywords.png)
 3. Perform again a search on term `running` to validate the change
-:information_source: To understand why the asset as a better score, we need to have a look at the **damAssetLucene** index configuration and more specifically to the property where is stored the *Search Promote* values
+
+:information_source: To understand why the asset has a better score, we need to have a look at the **damAssetLucene** index configuration and more specifically to the property where is stored the *Search Promote* values
 ![](images/boost-searchpromote.png)
 
 ## Chapter 07 - Smart Tags
