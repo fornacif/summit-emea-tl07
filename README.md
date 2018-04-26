@@ -313,6 +313,9 @@ Lucene fulltext indexing supports the ability to boost or weight specific metada
 :information_source: To understand why the asset has a better score, we need to have a look at the **damAssetLucene** index configuration and more specifically to the property where is stored the *Search Promote* values
 ![](images/boost-searchpromote.png)
 
+4. Perform an explain the query on [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html). We can see *jcr:content/metadata/dam:search_promote* property is boosted with a factor of 100 (^100.0)
+![](images/boost-explain.png)
+
 ## Chapter 07 - Smart Tags
 ## Chapter 08 - Smart Translation
 ## Chapter 09 - Diagnosis
