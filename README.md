@@ -332,7 +332,7 @@ These tags are then incorporated into search, so that under-tagged images can be
 ![](images/smarttags-enable.png)
 4. Navigate to AEM > Tools > Workflow > [Models](http://localhost:4502/libs/cq/workflow/admin/console/content/models.html)
 5. Select and edit *DAM Update Asset* workflow
-6. Add `Smart Tag Asset` step to workflow
+6. Add `Smart Tag Asset` step to workflow after *Process Thumbnails* step
 ![](images/smarttags-workflow.png)
 7. Click on **Sync** button
 
