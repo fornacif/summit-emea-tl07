@@ -267,7 +267,7 @@ Stemming is used at both index time and query time. At index time, stemmed terms
 For example
 * Given the provided term: developing
 * The stemmer will derive the root word: develop 
-* Which includes content that contains derived forms such as “developer”, and “development”
+* Which includes content that contains derived forms such as “developer” and “development”
 
 #### :computer: Configuration
 1. Verify searching `pants` works and `pant` doesn't 
@@ -314,12 +314,28 @@ Lucene fulltext indexing supports the ability to boost or weight specific metada
 ![](images/boost-keywords.png)
 3. Perform again a search on term `running` to validate the change
 
-:information_source: To understand why the asset has a better score, we need to have a look at the **damAssetLucene** index configuration and more specifically to the property where *Search Promote* values are stored 
+:information_source: To understand why the asset has a better score, we need to have a look at the **damAssetLucene** index configuration and more specifically to the property where *Search Promote* values are stored. Of course, any other properties can be boosted in index configuration
 ![](images/boost-searchpromote.png)
 
 4. Perform an explain the query on [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html). We can see *jcr:content/metadata/dam:search_promote* property is boosted with a factor of 100 (^100.0)
 ![](images/boost-explain.png)
 
 ## Chapter 07 - Smart Tags
+Smart Tags is a service that makes images more easily discoverable in DAM. One of the biggest challenges we face is a large repository of images of untagged assets. We are making assets more easily discoverable by automatically tagging images using a deep learning based algorithm. 
+
+These tags are then incorporated into search, so that under-tagged images can be found and the search results enriched. The tags (of which there are tens of thousands) are of generic nature (e.g., objects: car, lamp, salmon, subjects: man, woman, group of people, mood: sad, happy, smile, image properties: motion blur, macro, portrait, etc.) and do not contain brands, people identities, etc
+
+#### :computer: Enable Smart Tags
+1. [Cloud Service](http://localhost:4502/etc/cloudservices/smarttagging/smart-tags.html) for Smart Tags has already been configured
+2. Navigate to AEM > Assets > Files > We.Retail > English > [Activities](http://localhost:4502/assets.html/content/dam/we-retail/en/activities)
+3. Select *Hiking* folder properties and enable Smart Tags feature
+![](images/smarttags-enable.png)
+4. Navigate to AEM > Tools > Workflow > [Models](http://localhost:4502/libs/cq/workflow/admin/console/content/models.html)
+5. Select and edit *DAM Update Asset* workflow
+6. Add `Smart Tag Asset` step to workflow
+![](images/smarttags-workflow.png)
+7. Click on **Sync** button
+
+
 ## Chapter 08 - Smart Translation
 ## Chapter 09 - Diagnosis
