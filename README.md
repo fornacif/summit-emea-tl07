@@ -21,9 +21,6 @@ Using Chrome, log in to AEM Author at http://localhost:4502/
 * User name: admin
 * Password: admin
 
-### Content package
-Install content package which contains some assets.
-
 ### Developer Tools
 #### Index Manager
 Web console that facilitates and reviewing high-level Oak index configurations.
@@ -104,7 +101,7 @@ There are two types of suggestion configurations:
 7. Add property `suggestUpdateFrequencyMinutes` of type *Long* with value equals to `1` 
 ![](images/suggestions-update-frequency.png)
 8. Select */oak:index/damAssetLucene* node and add property `refresh` of type *Boolean* with value equals to `true`
-9. Save changes and refresh the node *damAssetLucene*, we can observe the *refresh* property disappeared
+9. Save changes and refresh the node *damAssetLucene*, we can should observe disappearing the *refresh* property
 
 :information_source: There would be some cases where changes in index definition does not require a full reindex. For e.g. if a new property is being introduced in content model and no prior content exist with such a property then its safe to index such a property without doing a reindex
 
@@ -112,9 +109,9 @@ There are two types of suggestion configurations:
 ![](images/suggestions-airliner-1.png)
 11. Select again */oak:index/damAssetLucene/suggestion* and add property `suggestAnalyzed` of type *Boolean* with value equals to `true`
 ![](images/suggestions-suggestAnalyzed.png)
-12. Select */oak:index/damAssetLucene* node and add a property `reindex` of type *Boolean* with value equals to `true`
+12. Select */oak:index/damAssetLucene* node and change `reindex` property value to `true`
 13. Save changes and refresh the node *damAssetLucene*, once re-index done the *reindex* property value must be equal to **false** and *reindexCount* incremented
-14. After maximum 1 minute, you should see aggregate-based suggestions for terms *airliner*, *big* or even *mountain*
+14. After maximum 1 minute, you should see aggregate-based suggestions for terms *airliner*, *big* or even *sky*
 ![](images/suggestions-airliner-2.png)
 
 ### :information_source: Suggestion query
@@ -132,7 +129,9 @@ Spellcheck provides list of terms that exist in the content for user typed input
 2. Search for the configuration [com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl.name](http://localhost:4502/system/console/configMgr/com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl)
 3. Activate the option `Include spellcheck in suggestions`
 ![](images/spellcheck-configuration.png)
+
 :information_source: Note this configuration defines also the min text length for suggestions
+
 4. As for previous suggestions, *dc:title* and *dc:description* asset properties are configured to provide spellcheck inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSpellcheck** must be equal to *true*
 ![](images/dcTitle-spellcheck.png)
 
@@ -235,7 +234,7 @@ Synonyms allow different terms with equivalent meaning to be considered the same
 
 ### :computer: ASCII Folding Filter
 In many languages we have special characters and they need to be handled properly.
-1. Navigate to *Navigation* folder and upload this image: [Montreal Airport](images/airport-montreal.jpeg)
+1. Navigate to previously created *Navigation* folder and upload this image: [Montreal Airport](images/airport-montreal.jpeg)
 2. Verify searching `Montreal` works and `Montréal` with accent doesn't
 3. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
 4. Add node name `ASCIIFolding` of type *nt:unstructured*
@@ -251,7 +250,7 @@ Sometimes, we want to explicitly change one character by another. It can be hand
 ### :computer: Stop Words Filter
 Stop words are effectively a black list of words that will not be added to the search index and thus unsearchable. Managed industries may add subjective terms as stop terms, or search over user-generated content may leverage them to keep profanities being searchable.
 
-1. Verify searching `the`, `before` or `must` terms works
+1. Verify searching `the`, `before` or `must` terms returns results
 2. Open the */oak:index/damAssetLucene/analyzers/default/filters* node in [CRXDE Lite](http://localhost:4502/crx/de/index.jsp#/oak%3Aindex/damAssetLucene/analyzers/default/filters)
 3. Add node name `Stop` of type *nt:unstructured*
 4. On *Stop* node add property `words` of type *String* with value `stopwords.txt`
@@ -263,7 +262,7 @@ Stop words are effectively a black list of words that will not be added to the s
 ### Stemming Filter
 Stemming converts user-provided search words into their linguistic “root” thereby intelligently expanding the scope of the full-text search.
 
-Stemming both an index time and query time activity. At index time, stemmed terms (rather than full terms) are stored in the full text index. At query time, the user provided search terms are stemmed and passed in as the full-text term.
+Stemming is used at both index time and query time. At index time, stemmed terms (rather than full terms) are stored in the full text index. At query time, the user provided search terms are stemmed and passed in as the full-text term.
 
 For example
 * Given the provided term: developing
