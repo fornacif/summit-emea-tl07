@@ -300,6 +300,18 @@ For example
 8. Verify searching `general`, `generals`, `generation` and `generations` terms is correct
 
 ## Chapter 06 - Boosting
+Lucene fulltext indexing supports the ability to boost or weight specific metadata properties. This allows specified properties to be ranked higher than others, thus when a search term is found in a boosted property the result is moved up in the search results. 
+
+:information_source: Note Lucene does a decent job of ranking metadata properties as it considers the length of the property when evaluating the result score. A title field is typically shorter than a description and thus search terms found in the title would typically be ranked higher by default.
+
+#### :computer: Boost keywords
+1. Perform a search on term `running` and open properties of last image in results
+2. Open *Advanced* metadata tab and add `running` item in *Search Promote* fields
+![](images/boost-keywords.png)
+3. Perform again a search on term `running` to validate the change
+:information_source: To understand why the asset as a better score, we need to have a look at the **damAssetLucene** index configuration and more specifically to the property where is stored the *Search Promote* values
+![](images/boost-searchpromote.png)
+
 ## Chapter 07 - Smart Tags
 ## Chapter 08 - Smart Translation
 ## Chapter 09 - Diagnosis
