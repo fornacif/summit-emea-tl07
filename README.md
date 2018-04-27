@@ -371,7 +371,7 @@ Smart Translation Search feature uses machine translation to translate search qu
 | French      | English     |
 |-------------|-------------|
 | montagne    | mountain    |
-| nuage       | centered    |
+| nuage       | cloud       |
 | pantalon    | pant        |
 | forêt       | forest      |
 
