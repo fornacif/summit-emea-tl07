@@ -366,10 +366,11 @@ Smart Translation Search feature uses machine translation to translate search qu
 
 :information_source: Here we have just installed the French language pack 
 
-7. Verify that some french terms give now some results
-```
-montagne (mountain)
-nuage (cloud)
-pantalon (pant)
-forêt (forest)
-```
+7. Verify that some french terms give now results
+| French      | English     |
+|-------------|-------------|
+| montagne    | mountain    |
+| nuage       | centered    |
+| pantalon    | pant        |
+| forêt       | forest      |
+
