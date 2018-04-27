@@ -13,7 +13,10 @@
 ## Chapter 01 - Bootstrap
 
 ### AEM Start
-Start AEM by executing the following command on path `/Users/tl07/Desktop/aem-6.4-summit-london`
+Start AEM by executing the following steps
+
+1. Open a terminal window and navigate to path `/Users/tl07/Desktop/aem-6.4-summit-london`
+2. Execute the following command
 
 ```java -Xmx6G -jar cq-quickstart-*.jar -nobrowser -nofork```
 
