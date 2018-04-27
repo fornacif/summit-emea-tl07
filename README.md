@@ -14,6 +14,7 @@
 
 ### AEM Start
 Start AEM by executing the following command on path `/Users/tl07/Desktop/aem-6.4-summit-london`
+
 ```java -Xmx6G -jar cq-quickstart-*.jar -nobrowser -nofork```
 
 Using Chrome, log in to AEM Author at http://localhost:4502/
