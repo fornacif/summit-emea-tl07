@@ -367,10 +367,6 @@ Smart Translation Search feature uses machine translation to translate search qu
 :information_source: Here we have just installed the French language pack 
 
 7. Verify that some french terms give now results
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
 
 | French      | English     |
 |-------------|-------------|
