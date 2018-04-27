@@ -345,7 +345,7 @@ These tags are then incorporated into search, so that under-tagged images can be
 4. Upload this new [image](images/hiking-free.jpeg) in *Hiking* folder
 
 #### :computer: Display confidence score
-To display smart tags confidence score, to properties must be changed in AEM configuration as described in [documentation](https://helpx.adobe.com/experience-manager/kt/assets/using/smart-tags-technical-video-setup.html#ShowingSmartTagsscoresforinstructionalpurposes) 
+To display smart tags confidence score, some configurations must be changed as described in [documentation](https://helpx.adobe.com/experience-manager/kt/assets/using/smart-tags-technical-video-setup.html#ShowingSmartTagsscoresforinstructionalpurposes).
 1. Open Package Manager in [CRXDE Lite](http://localhost:4502/crx/packmgr/index.jsp) 
 2. Install the [Chapter 07 - Smart Tags-1.0.0.zip](resources/Chapter%2007%20-%20Smart%20Tags-1.0.0.zip) package
 3. Select one previously processed asset and click on *Manage Tags* or open asset metadata
