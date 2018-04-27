@@ -9,7 +9,6 @@
 [Chapter 06 - Boosting](#chapter-06---boosting)  
 [Chapter 07 - Smart Tags](#chapter-07---smart-tags)  
 [Chapter 08 - Smart Translation](#chapter-08---smart-translation)  
-[Chapter 09 - Diagnosis](#chapter-09---diagnosis)  
 
 ## Chapter 01 - Bootstrap
 
@@ -125,7 +124,7 @@ More informations can be found in [OAK documentation](https://jackrabbit.apache.
 Spellcheck provides list of terms that exist in the content for user typed inputs that doesn't exactly match. It's mainly used to fix user typos by providing suggestions that will help them maximize results. By default the spellcheck is disabled in AEM.
 
 ### :computer: Configure spellcheck
-1. Open configurations [OSGi Console](http://localhost:4502/system/console/configMgr)
+1. Open [OSGi configurations](http://localhost:4502/system/console/configMgr) 
 2. Search for the configuration [com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl.name](http://localhost:4502/system/console/configMgr/com.adobe.granite.omnisearch.impl.core.OmniSearchServiceImpl)
 3. Activate the option `Include spellcheck in suggestions`
 ![](images/spellcheck-configuration.png)
@@ -352,4 +351,25 @@ To display smart tags confidence score, some configurations must be changed as d
 ![](images/smarttags-managetags.png)
 
 ## Chapter 08 - Smart Translation
-## Chapter 09 - Diagnosis
+Large enterprises with operations in different countries wish to enable search in different languages without having to go through costly and time-consuming translation workflows.
+
+Smart Translation Search feature uses machine translation to translate search queries on the fly. It leverages the open source project [Apache Joshua](https://cwiki.apache.org/confluence/display/JOSHUA/Apache+Joshua+%28Incubating%29+Home), which supports more than 50 languages.
+
+#### :computer: Enable Smart Translation
+1. Open [OSGi Console](http://localhost:4502/system/console)
+2. Install and start the OAK search extension [OSGi bundle](resources/oak-search-mt-1.8.2.jar)
+3. Create an OSGi configuration for [Apache Jackrabbit Oak Machine Translation Fulltext Query Terms Provider](http://localhost:4502/system/console/configMgr/org.apache.jackrabbit.oak.plugins.index.mt.MTFulltextQueryTermsProviderFactory)
+4. Set Joshua config path to `/Users/fornacia/Programs/aem-6.4/aem-6.4-summit-london/apache-joshua-fr-en-2016-11-18/joshua.config`
+5. Set node types to `dam:Asset`
+![](images/smarttranslation-configuration.png)
+6. Save configuration
+
+:information_source: Here we have just installed the French language pack 
+
+7. Verify that some french terms give now some results
+```
+montagne (mountain)
+nuage (cloud)
+pantalon (pant)
+forêt (forest)
+```
