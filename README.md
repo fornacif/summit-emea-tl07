@@ -25,9 +25,6 @@ Start AEM by executing the following steps
 * Password: admin
 
 ### Developer Tools
-#### Index Manager
-Web console that facilitates and reviewing high-level Oak index configurations.
-- AEM > Tools > Operations > Diagnosis > [Index Manager](http://localhost:4502/libs/granite/operations/content/diagnosistools/indexManager.html)
 
 #### Query Performance & Explain Query
 Web console that lists recent slow and popular queries and provides detailed execution details for a specific query.
