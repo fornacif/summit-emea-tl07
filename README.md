@@ -330,12 +330,26 @@ These tags are then incorporated into search, so that under-tagged images can be
 2. Navigate to AEM > Assets > Files > We.Retail > English > [Activities](http://localhost:4502/assets.html/content/dam/we-retail/en/activities)
 3. Select *Hiking* folder properties and enable Smart Tags feature
 ![](images/smarttags-enable.png)
-4. Navigate to AEM > Tools > Workflow > [Models](http://localhost:4502/libs/cq/workflow/admin/console/content/models.html)
-5. Select and edit *DAM Update Asset* workflow
-6. Add `Smart Tag Asset` step to workflow after *Process Thumbnails* step
-![](images/smarttags-workflow.png)
-7. Click on **Sync** button
+4. Select *Hiking* folder and trigger *DAM Smart Tag Assets* workflow (Create > Workflow)
+![](images/smarttags-trigger.png)
+5. Open assets properties and check new smart tags
+![](images/smarttags-metadata.png)
+6. Searching term `adventure` or `campsite` now returns images too
 
+:information_source: To automate Smart Tags feature at upload, simply modify *DAM Update Asset* workflow
+
+1. Navigate to AEM > Tools > Workflow > [Models](http://localhost:4502/libs/cq/workflow/admin/console/content/models.html)
+2. Add `Smart Tag Asset` step to *DAM Update Asset* workflow after *Process Thumbnails* step
+![](images/smarttags-workflow.png)
+3. Click on **Sync** button
+4. Upload this new [image](images/hiking-free.jpeg) in *Hiking* folder
+
+#### :computer: Display confidence score
+To display smart tags confidence score, to properties must be changed in AEM configuration as described in [documentation](https://helpx.adobe.com/experience-manager/kt/assets/using/smart-tags-technical-video-setup.html#ShowingSmartTagsscoresforinstructionalpurposes) 
+1. Open Package Manager in [CRXDE Lite](http://localhost:4502/crx/packmgr/index.jsp) 
+2. Install the [Chapter 07 - Smart Tags-1.0.0.zip](resources/Chapter%2007%20-%20Smart%20Tags-1.0.0.zip) package
+3. Select one previously processed asset and click on *Manage Tags* or open asset metadata
+![](images/smarttags-managetags.png)
 
 ## Chapter 08 - Smart Translation
 ## Chapter 09 - Diagnosis
