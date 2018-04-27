@@ -20,7 +20,7 @@ Start AEM by executing the following steps
 
 ```java -Xmx6G -jar cq-quickstart-*.jar -nobrowser -nofork```
 
-Using Chrome, log in to AEM Author at http://localhost:4502/
+3. Using Chrome, log in to AEM Author at http://localhost:4502/
 * User name: admin
 * Password: admin
 
