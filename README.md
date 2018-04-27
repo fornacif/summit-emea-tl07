@@ -13,7 +13,7 @@
 ## Chapter 01 - Bootstrap
 
 ### AEM Start
-Start AEM by executing the following command  
+Start AEM by executing the following command on path `/Users/tl07/Desktop/aem-6.4-summit-london`
 ```java -Xmx6G -jar cq-quickstart-*.jar -nobrowser -nofork```
 
 Using Chrome, log in to AEM Author at http://localhost:4502/
@@ -359,7 +359,7 @@ Smart Translation Search feature uses machine translation to translate search qu
 1. Open [OSGi Console](http://localhost:4502/system/console)
 2. Install and start the OAK search extension [OSGi bundle](resources/oak-search-mt-1.8.2.jar)
 3. Create an OSGi configuration for [Apache Jackrabbit Oak Machine Translation Fulltext Query Terms Provider](http://localhost:4502/system/console/configMgr/org.apache.jackrabbit.oak.plugins.index.mt.MTFulltextQueryTermsProviderFactory)
-4. Set Joshua config path to `/Users/fornacia/Programs/aem-6.4/aem-6.4-summit-london/apache-joshua-fr-en-2016-11-18/joshua.config`
+4. Set Joshua config path to `/Users/tl07/Desktop/aem-6.4-summit-london/apache-joshua-fr-en-2016-11-18/joshua.config`
 5. Set node types to `dam:Asset`
 ![](images/smarttranslation-configuration.png)
 6. Save configuration
