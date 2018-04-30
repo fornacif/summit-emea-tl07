@@ -8,7 +8,7 @@
 [Chapter 05 - Analyzers](#chapter-05---analyzers)  
 [Chapter 06 - Boosting](#chapter-06---boosting)  
 [Chapter 07 - Smart Tags](#chapter-07---smart-tags)  
-[Chapter 08 - Smart Translation](#chapter-08---smart-translation)
+[Chapter 08 - Smart Translation](#chapter-08---smart-translation)  
 [Solutions](#solutions)  
 
 ## Chapter 01 - Bootstrap
