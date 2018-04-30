@@ -8,7 +8,8 @@
 [Chapter 05 - Analyzers](#chapter-05---analyzers)  
 [Chapter 06 - Boosting](#chapter-06---boosting)  
 [Chapter 07 - Smart Tags](#chapter-07---smart-tags)  
-[Chapter 08 - Smart Translation](#chapter-08---smart-translation)  
+[Chapter 08 - Smart Translation](#chapter-08---smart-translation)
+[Solutions](#solutions)  
 
 ## Chapter 01 - Bootstrap
 
@@ -27,7 +28,7 @@ Start AEM by executing the following steps
 ### Developer Tools
 
 #### Query Performance & Explain Query
-Web console that lists recent slow and popular queries and provides detailed execution details for a specific query.
+Web tool that lists recent slow and popular queries and provides detailed execution details for a specific query.
 - AEM > Tools > Operations > Diagnosis > [Query Performance](http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html)
 
 #### :information_source: Re-indexing Oak Indexes
@@ -376,3 +377,10 @@ Smart Translation Search feature uses machine translation to translate search qu
 | pantalon    | pant        |
 | forêt       | forest      |
 
+## Solutions
+* Chapter 3
+* Chapter 4
+* Chapter 5
+* Chapter 6
+* Chapter 7
+* Chapter 8
