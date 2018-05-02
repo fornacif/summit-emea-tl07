@@ -301,11 +301,11 @@ For example
 :information_source: What if we search for `generals` or `generations` ?
 4. Add node name `StemmerOverride` of type *nt:unstructured* before the node *PorterStem*
 5. On *StemmerOverride* node add property `dictionary` of type *String* with value `dictionary.txt`
-5. Under *StemmerOverride* node, create a file named `dictionary.txt`
-6. Insert terms `generations	generation` and `generals	general` in *dictionary.txt* (terms are tab-separated)
+6. Under *StemmerOverride* node, create a file named `dictionary.txt`
+7. Insert terms `generations	generation` and `generals	general` in *dictionary.txt* (terms are tab-separated)
 ![](images/analyzers-dictionary.png)
-7. Save changes and re-index **damAssetLucene**
-8. Verify searching `general`, `generals`, `generation` and `generations` terms is correct
+8. Save changes and re-index **damAssetLucene**
+9. Verify searching `general`, `generals`, `generation` and `generations` terms is correct
 
 ## Chapter 06 - Boosting
 Lucene fulltext indexing supports the ability to boost or weight specific metadata properties. This allows specified properties to be ranked higher than others, thus when a search term is found in a boosted property the result is moved up in the search results. 
