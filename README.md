@@ -381,7 +381,7 @@ Smart Translation Search feature uses machine translation to translate search qu
 | pantalon    | pant        |
 | forêt       | forest      |
 
-##Solution Packages
+## Solution Packages
 * [Chapter 03 - Suggestions - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Suggestions%20-%20Solution-1.0.0.zip)
 * [Chapter 04 - Spellcheck - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Spellcheck%20-%20Solution-1.0.0.zip)
 * [Chapter 05 - Analyzers - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Analyzers%20-%20Solution-1.0.0.zip)
