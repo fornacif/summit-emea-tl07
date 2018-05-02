@@ -8,8 +8,7 @@
 [Chapter 05 - Analyzers](#chapter-05---analyzers)  
 [Chapter 06 - Boosting](#chapter-06---boosting)  
 [Chapter 07 - Smart Tags](#chapter-07---smart-tags)  
-[Chapter 08 - Smart Translation](#chapter-08---smart-translation)  
-[Solution Packages](#solution-packages)  
+[Chapter 08 - Smart Translation](#chapter-08---smart-translation)   
 
 ## Chapter 01 - Bootstrap
 
@@ -115,14 +114,15 @@ There are two types of suggestion configurations:
 14. After maximum 1 minute, you should see aggregate-based suggestions for terms *airliner*, *big* or even *sky*
 ![](images/suggestions-airliner-2.png)
 
-### :computer: Solution
-
 ### :information_source: Suggestion query
 For getting suggestion terms, the following query can be used to retrieve values:
 ```sql
 SELECT rep:suggest() FROM [nt:base] WHERE SUGGEST('airliner') AND ISDESCENDANTNODE('/content/dam')
 ```
 More informations can be found in [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Suggestions)  
+
+### :white_check_mark: Solution Package
+[Chapter 03 - Suggestions - Solution-1.0.0.zip](resources/Chapter%2003%20-%20Suggestions%20-%20Solution-1.0.0.zip)
 
 ## Chapter 04 - Spellcheck
 Spellcheck provides list of terms that exist in the content for user typed inputs that doesn't exactly match. It's mainly used to fix user typos by providing suggestions that will help them maximize results. By default the spellcheck is disabled in AEM.
@@ -196,6 +196,9 @@ For getting spellcheck suggestion terms, the following query can be used to retr
 SELECT rep:spellcheck() FROM [nt:base] WHERE SPELLCHECK('skying') AND ISDESCENDANTNODE('/content/dam')
 ```
 More informations can be found in [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Spellchecking)
+
+### :white_check_mark: Solution Package
+[Chapter 04 - Spellcheck - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Spellcheck%20-%20Solution-1.0.0.zip)
 
 ## Chapter 05 - Analyzers
 AEM search allows Analyzers to be configured per index. Analyzers dictate how content is indexed into the search indices, and can also augment how queries are executed against them. This exercise set up among other Synonyms, Stemming, Stop words and HTML Stripping.
@@ -308,6 +311,9 @@ For example
 8. Save changes and re-index **damAssetLucene**
 9. Verify searching `general`, `generals`, `generation` and `generations` terms is correct
 
+### :white_check_mark: Solution Package
+[Chapter 05 - Analyzers - Solution-1.0.0.zip](resources/Chapter%2005%20-%20Analyzers%20-%20Solution-1.0.0.zip)
+
 ## Chapter 06 - Boosting
 Lucene fulltext indexing supports the ability to boost or weight specific metadata properties. This allows specified properties to be ranked higher than others, thus when a search term is found in a boosted property the result is moved up in the search results. 
 
@@ -356,6 +362,9 @@ To display smart tags confidence score, some configurations must be changed as d
 3. Select one previously processed asset and click on *Manage Tags* or open asset metadata
 ![](images/smarttags-managetags.png)
 
+### :white_check_mark: Solution Package
+[Chapter 07 - Smart Tags - Solution-1.0.0.zip](resources/Chapter%2007%20-%20Smart%20Tags%20-%20Solution-1.0.0.zip)
+
 ## Chapter 08 - Smart Translation
 Large enterprises with operations in different countries wish to enable search in different languages without having to go through costly and time-consuming translation workflows.
 
@@ -381,9 +390,5 @@ Smart Translation Search feature uses machine translation to translate search qu
 | pantalon    | pant        |
 | forêt       | forest      |
 
-## Solution Packages
-* [Chapter 03 - Suggestions - Solution-1.0.0.zip](resources/Chapter%2003%20-%20Suggestions%20-%20Solution-1.0.0.zip)
-* [Chapter 04 - Spellcheck - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Spellcheck%20-%20Solution-1.0.0.zip)
-* [Chapter 05 - Analyzers - Solution-1.0.0.zip](resources/Chapter%2005%20-%20Analyzers%20-%20Solution-1.0.0.zip)
-* [Chapter 07 - Smart Tags - Solution-1.0.0.zip](resources/Chapter%2007%20-%20Smart%20Tags%20-%20Solution-1.0.0.zip)
-* [Chapter 08 - Smart Translation - Solution-1.0.0.zip](resources/Chapter%2008%20-%20Smart%20Translation%20-%20Solution-1.0.0.zip)
+### :white_check_mark: Solution Package
+[Chapter 08 - Smart Translation - Solution-1.0.0.zip](resources/Chapter%2008%20-%20Smart%20Translation%20-%20Solution-1.0.0.zip)
