@@ -121,7 +121,7 @@ SELECT rep:suggest() FROM [nt:base] WHERE SUGGEST('airliner') AND ISDESCENDANTNO
 More informations can be found in [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Suggestions)  
 
 ### :ballot_box_with_check: Solution Package
-[Chapter 03 - Suggestions - Solution-1.0.0.zip](resources/Chapter%2003%20-%20Suggestions%20-%20Solution-1.0.0.zip) (re-reindex after install)
+[Chapter 03 - Suggestions - Solution-1.0.0.zip](resources/Chapter%2003%20-%20Suggestions%20-%20Solution-1.0.0.zip) (re-index after install)
 
 ## Chapter 04 - Spellcheck
 Spellcheck provides list of terms that exist in the content for user typed inputs that doesn't exactly match. It's mainly used to fix user typos by providing suggestions that will help them maximize results. By default the spellcheck is disabled in AEM.
@@ -311,7 +311,7 @@ For example
 9. Verify searching `general`, `generals`, `generation` and `generations` terms is correct
 
 ### :ballot_box_with_check: Solution Package
-[Chapter 05 - Analyzers - Solution-1.0.0.zip](resources/Chapter%2005%20-%20Analyzers%20-%20Solution-1.0.0.zip)
+[Chapter 05 - Analyzers - Solution-1.0.0.zip](resources/Chapter%2005%20-%20Analyzers%20-%20Solution-1.0.0.zip) (re-index after install)
 
 ## Chapter 06 - Boosting
 Lucene fulltext indexing supports the ability to boost or weight specific metadata properties. This allows specified properties to be ranked higher than others, thus when a search term is found in a boosted property the result is moved up in the search results. 
