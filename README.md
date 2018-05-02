@@ -9,6 +9,7 @@
 [Chapter 06 - Boosting](#chapter-06---boosting)  
 [Chapter 07 - Smart Tags](#chapter-07---smart-tags)  
 [Chapter 08 - Smart Translation](#chapter-08---smart-translation)  
+[Solution Packages](#solution-packages)  
 
 ## Chapter 01 - Bootstrap
 
@@ -379,3 +380,10 @@ Smart Translation Search feature uses machine translation to translate search qu
 | nuage       | cloud       |
 | pantalon    | pant        |
 | forêt       | forest      |
+
+##Solution Packages
+* [Chapter 03 - Suggestions - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Suggestions%20-%20Solution-1.0.0.zip)
+* [Chapter 04 - Spellcheck - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Spellcheck%20-%20Solution-1.0.0.zip)
+* [Chapter 05 - Analyzers - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Analyzers%20-%20Solution-1.0.0.zip)
+* [Chapter 07 - Smart Tags - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Smart%20Tags%20-%20Solution-1.0.0.zip)
+* [Chapter 08 - Smart Translation - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Smart%20Translation%20-%20Solution-1.0.0.zip)
