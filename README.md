@@ -71,8 +71,7 @@ Try out the following full-text searches using the supported operators and note 
 1. Group phrases: `forest trail`
 2. Group phrases with using double-quotes: `"forest trail"`
 3. OR operator: `forest OR trail`
-4. Combine operators: `"marathon shoes" OR forest`
-5. Negative operator: `forest -trail`
+4. Negative operator: `forest -trail`
 
 ## Chapter 03 - Suggestions
 Suggestions provide list of terms or phrases that exist in the content and match a user-provided initial search term.  
