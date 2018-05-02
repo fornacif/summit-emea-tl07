@@ -9,7 +9,6 @@
 [Chapter 06 - Boosting](#chapter-06---boosting)  
 [Chapter 07 - Smart Tags](#chapter-07---smart-tags)  
 [Chapter 08 - Smart Translation](#chapter-08---smart-translation)  
-[Solutions](#solutions)  
 
 ## Chapter 01 - Bootstrap
 
@@ -114,6 +113,8 @@ There are two types of suggestion configurations:
 13. Save changes and refresh the node *damAssetLucene*, once re-index done the *reindex* property value must be equal to **false** and *reindexCount* incremented
 14. After maximum 1 minute, you should see aggregate-based suggestions for terms *airliner*, *big* or even *sky*
 ![](images/suggestions-airliner-2.png)
+
+### :computer: Solution
 
 ### :information_source: Suggestion query
 For getting suggestion terms, the following query can be used to retrieve values:
@@ -295,7 +296,7 @@ For example
 
 1. Search for term `general`. Is the term always contained in the Content Fragment ?
 2. This behaviour is explained by the fact that *general* and *generation* have the same root, *gener*
-3. As before, let's first insert terms `general` and `generation` in *protectedwords.txt*  
+3. As before, let's first insert terms `general` and `generation` in *protectedwords.txt* (one word by line)  
 :information_source: What if we search for `generals` or `generations` ?
 4. Add node name `StemmerOverride` of type *nt:unstructured* before the node *PorterStem*
 5. On *StemmerOverride* node add property `dictionary` of type *String* with value `dictionary.txt`
@@ -376,11 +377,3 @@ Smart Translation Search feature uses machine translation to translate search qu
 | nuage       | cloud       |
 | pantalon    | pant        |
 | forêt       | forest      |
-
-## Solutions
-* Chapter 3
-* Chapter 4
-* Chapter 5
-* Chapter 6
-* Chapter 7
-* Chapter 8
