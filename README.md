@@ -121,7 +121,7 @@ SELECT rep:suggest() FROM [nt:base] WHERE SUGGEST('airliner') AND ISDESCENDANTNO
 ```
 More informations can be found in [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Suggestions)  
 
-### :white_check_mark: Solution Package
+### :ballot_box_with_check: Solution Package
 [Chapter 03 - Suggestions - Solution-1.0.0.zip](resources/Chapter%2003%20-%20Suggestions%20-%20Solution-1.0.0.zip)
 
 ## Chapter 04 - Spellcheck
@@ -197,7 +197,7 @@ SELECT rep:spellcheck() FROM [nt:base] WHERE SPELLCHECK('skying') AND ISDESCENDA
 ```
 More informations can be found in [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Spellchecking)
 
-### :white_check_mark: Solution Package
+### :ballot_box_with_check: Solution Package
 [Chapter 04 - Spellcheck - Solution-1.0.0.zip](resources/Chapter%2004%20-%20Spellcheck%20-%20Solution-1.0.0.zip)
 
 ## Chapter 05 - Analyzers
@@ -311,7 +311,7 @@ For example
 8. Save changes and re-index **damAssetLucene**
 9. Verify searching `general`, `generals`, `generation` and `generations` terms is correct
 
-### :white_check_mark: Solution Package
+### :ballot_box_with_check: Solution Package
 [Chapter 05 - Analyzers - Solution-1.0.0.zip](resources/Chapter%2005%20-%20Analyzers%20-%20Solution-1.0.0.zip)
 
 ## Chapter 06 - Boosting
@@ -362,7 +362,7 @@ To display smart tags confidence score, some configurations must be changed as d
 3. Select one previously processed asset and click on *Manage Tags* or open asset metadata
 ![](images/smarttags-managetags.png)
 
-### :white_check_mark: Solution Package
+### :ballot_box_with_check: Solution Package
 [Chapter 07 - Smart Tags - Solution-1.0.0.zip](resources/Chapter%2007%20-%20Smart%20Tags%20-%20Solution-1.0.0.zip)
 
 ## Chapter 08 - Smart Translation
@@ -390,5 +390,5 @@ Smart Translation Search feature uses machine translation to translate search qu
 | pantalon    | pant        |
 | forêt       | forest      |
 
-### :white_check_mark: Solution Package
+### :ballot_box_with_check: Solution Package
 [Chapter 08 - Smart Translation - Solution-1.0.0.zip](resources/Chapter%2008%20-%20Smart%20Translation%20-%20Solution-1.0.0.zip)
