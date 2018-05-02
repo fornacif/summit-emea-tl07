@@ -62,9 +62,8 @@ Lucene property indixes are at the core of AEM Search and must be well understoo
 ### :computer: Inspecting the damAssetLucene index definition
 1.	Open [CRXDE Lite](http://localhost:4502/crx/de)
 2.	Select /oak:index/damAssetLucene node
-3.	Core index configurations are on damAssetLucene 
-4.	Full-text aggregate configuration are defined under damAssetLucene/aggregates
-5.	Property specific configurations are defined under damAssetLucene/indexRules
+3.	Full-text aggregate configuration are defined under damAssetLucene/aggregates
+4.	Property specific configurations are defined under damAssetLucene/indexRules
 ![](images/assets-index.png)
 
 ### :computer: Full-text operations
