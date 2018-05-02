@@ -386,7 +386,7 @@ Smart Translation Search feature uses machine translation to translate search qu
 |-------------|-------------|
 | montagne    | mountain    |
 | nuage       | cloud       |
-| pantalon    | pant        |
+| vague       | wave        |
 | forêt       | forest      |
 
 ### :ballot_box_with_check: Solution Package
