@@ -287,10 +287,11 @@ For example
 :information_source: We can manage this situation by excluding the term *university* for being processed by the stemmer
 3. Add node name `KeywordMarker` of type *nt:unstructured* before the node *PorterStem*
 4. On *KeywordMarker* node add property `protected` of type *String* with value `protectedwords.txt`
-5. Insert term `university` in *protectedwords.txt*
+5. Under *KeywordMarker* node, create a file named `protectedwords.txt`
+6. Insert term `university` in *protectedwords.txt*
 ![](images/analyzers-protectedwords.png)
-6. Save changes and re-index **damAssetLucene**
-7. Verify searching `university` term doesn't return any result anymore
+7. Save changes and re-index **damAssetLucene**
+8. Verify searching `university` term doesn't return any result anymore
 
 #### :computer: Bonus - Super Fine Tuning
 
@@ -300,6 +301,7 @@ For example
 :information_source: What if we search for `generals` or `generations` ?
 4. Add node name `StemmerOverride` of type *nt:unstructured* before the node *PorterStem*
 5. On *StemmerOverride* node add property `dictionary` of type *String* with value `dictionary.txt`
+5. Under *StemmerOverride* node, create a file named `dictionary.txt`
 6. Insert terms `generations	generation` and `generals	general` in *dictionary.txt* (terms are tab-separated)
 ![](images/analyzers-dictionary.png)
 7. Save changes and re-index **damAssetLucene**
