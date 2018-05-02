@@ -81,7 +81,7 @@ There are two types of suggestion configurations:
 
 ### :computer: Validate search suggestions
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
-2. Click on the Search button and type the term `trail`
+2. Click on Search button and type the term `trail`
 3. Verify AEM is providing suggestions for potential matching results
 ![](images/search-suggestions.png)
 4. In this example, we observe property-based suggestions. *dc:title* and *dc:description* asset properties are configured to provide suggestion inputs. The configuration is done in the *damAssetLucene* index. The boolean property **useInSuggest** must be equal to *true*
@@ -91,7 +91,7 @@ There are two types of suggestion configurations:
 1. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam)
 2. Create a folder named `Aviation`
 3. Enter this new folder and upload this image: [Big Airliner](images/airline_engine.jpg)
-4. Click on the Search button and type term `airliner`
+4. Click on Search button and type term `airliner`
 
 :information_source: We can observe that no suggestions are provided. Indeed, the default update frequency is set to 10 minutes
 
@@ -121,7 +121,7 @@ SELECT rep:suggest() FROM [nt:base] WHERE SUGGEST('airliner') AND ISDESCENDANTNO
 More informations can be found in [OAK documentation](https://jackrabbit.apache.org/oak/docs/query/lucene.html#Suggestions)  
 
 ### :ballot_box_with_check: Solution Package
-[Chapter 03 - Suggestions - Solution-1.0.0.zip](resources/Chapter%2003%20-%20Suggestions%20-%20Solution-1.0.0.zip)
+[Chapter 03 - Suggestions - Solution-1.0.0.zip](resources/Chapter%2003%20-%20Suggestions%20-%20Solution-1.0.0.zip) (re-reindex after install)
 
 ## Chapter 04 - Spellcheck
 Spellcheck provides list of terms that exist in the content for user typed inputs that doesn't exactly match. It's mainly used to fix user typos by providing suggestions that will help them maximize results. By default the spellcheck is disabled in AEM.
@@ -141,7 +141,7 @@ Spellcheck provides list of terms that exist in the content for user typed input
 1. By default, TouchUI interface doesn't display spellcheck suggestions in Omnisearch feature
 2. Navigate to AEM > Assets > [File](http://localhost:4502/assets.html/content/dam) 
 3. Open Chrome Developer Tools and select the *Network* tab
-4. Click on the Search button and type term `skying` (note the typo)
+4. Click on Search button and type term `skying` (note the typo)
 5. If we analyze the *omnisearch* request response, we can observe the *spellcheckSuggestion* JSON object containing a suggestion
 ```json
 {  
@@ -186,7 +186,7 @@ else  if (itemsAddedCount < MAX_SUGGESTIONS && data.spellcheckSuggestion) {
 
 1. Open Package Manager in [CRXDE Lite](http://localhost:4502/crx/packmgr/index.jsp) 
 2. Install the [Chapter 04 - Spellcheck-1.0.0.zip](resources/Chapter%2004%20-%20Spellcheck-1.0.0.zip) package
-3. Click on the Search button and type term `skying`
+3. Refresh page, click on Search button and type term `skying`
 ![](images/search-spellcheck.png)
 
 ### :information_source: Spellcheck query
